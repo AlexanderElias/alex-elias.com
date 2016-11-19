@@ -12,7 +12,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "build": ""
+	  "build": "rm -r dist/* && muleify pack -o dist && rm -r docs/* && muleify pack -o docs"
   },
   "repository": {
     "type": "git",
