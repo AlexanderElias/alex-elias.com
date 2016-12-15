@@ -1,0 +1,33 @@
+<script src="./astatine.js"></script>
+
+<div class="response"></div>
+
+<form enctype="application/json" method="POST" action="https://formspree.io/mqaakzam">
+	<input type="text" name="First Name" placholder="First Name">
+	<input type="text" name="Last Name" placholder="Last Name">
+	<input type="text" name="Email" placholder="Email">
+	<input type="text" name="Phone" placholder="Phone">
+	<input type="submit" value="Submit">
+</form>
+
+<script>
+Astatine.submit({
+	query: 'form',
+	prepare: function (data) {
+		console.log(data);
+	},
+	complete: function (error, success) {
+		var response = document.querySelector('.response');
+
+		if (error) {
+			console.log(error);
+			response.style.color = 'red';
+			response.innerText = 'Error';
+		} else {
+			response.style.color = 'green';
+			response.innerText = 'Success';
+		}
+
+	}
+});
+</script>

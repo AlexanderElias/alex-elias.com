@@ -7,12 +7,13 @@
     "doc": "docs"
   },
   "dependencies": {
-    "erbium": "^1.3.5",
+    "astatine": "^1.1.2",
+    "erbium": "^1.4.3",
     "flexboxgrid": "^6.3.1"
   },
   "devDependencies": {},
   "scripts": {
-	  "build": "rm -r dist/* && rm -r docs/* && muleify pack src dist && muleify pack src docs"
+    "build": "rm -r dist/* && rm -r docs/* && muleify pack src dist && muleify pack src docs"
   },
   "repository": {
     "type": "git",
