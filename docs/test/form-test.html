@@ -1,4 +1,4 @@
-<script src="./assets/astatine.js"></script>
+<script src="./assets/astatine.min.js"></script>
 
 <div class="response"></div>
 
@@ -13,13 +13,10 @@
 <script>
 Astatine.submit({
 	query: 'form',
-	// mimeType: 'application/json',
-	// headers: {
-	// 	'Access-Control-Allow-Origin': '*'
+	responseType: 'json',
+	// prepare: function (data) {
+	// 	console.log(data);
 	// },
-	prepare: function (data) {
-		console.log(data);
-	},
 	complete: function (error, success) {
 		var response = document.querySelector('.response');
 
