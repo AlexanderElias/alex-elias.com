@@ -2,21 +2,29 @@
 
 <div class="response"></div>
 
-<form enctype="application/json" method="POST" action="https://formspree.io/mqaakzam">
+<form method="post" action="https://www.enformed.io/zpn17s0">
+<!-- <form method="post" action="https://formspree.io/mqaakzam"> -->
 	<input type="text" name="First Name" placeholder="First Name">
 	<input type="text" name="Last Name" placeholder="Last Name">
 	<input type="text" name="Email Address" placeholder="Email">
 	<input type="text" name="Phone" placeholder="Phone">
+
+	<input type="hidden" name="*subject" value="alex-elias form submission" />
+	<input type="hidden" name="*default_email" value="alex.steven.elias@gmail.com" />
+	<input type="hidden" name="*formname" value="test" />
+
 	<input type="submit" value="Submit">
 </form>
 
 <script>
 Astatine.submit({
 	query: 'form',
+	// requestType: 'json',
 	responseType: 'json',
-	// prepare: function (data) {
-	// 	console.log(data);
-	// },
+	prepare: function (data) {
+		data.foo = 'bar';
+		return data;
+	},
 	complete: function (error, success) {
 		var response = document.querySelector('.response');
 
