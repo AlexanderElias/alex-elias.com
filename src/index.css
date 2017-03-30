@@ -7,6 +7,9 @@
 html, body, main, header, footer {
 	max-width: 100%;
 }
+body {
+	background: beige;
+}
 section {
 	width: 100vw;
 	height: 100vh;
