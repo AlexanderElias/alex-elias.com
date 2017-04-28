@@ -80,6 +80,8 @@ window.raf = (function () {
 	function drawLine () {
 
 		lines.forEach(function (line) {
+			console.log(line);
+
 			line.x = line.x + line.s;
 			line.y = line.y + line.s;
 
@@ -88,12 +90,14 @@ window.raf = (function () {
 			ctx.lineTo(line.x, line.y);
 			ctx.stroke();
 			ctx.closePath();
+
 		});
 
-		raf(drawLine);
+		// sraf(drawLine);
 	}
 
-	raf(drawCircle);
-	raf(drawLine);
+	drawLine();
+	// raf(drawCircle);
+	// raf(drawLine);
 
 </script>
