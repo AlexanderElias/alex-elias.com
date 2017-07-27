@@ -1,0 +1,162 @@
+/*
+	white-gray: #eee;
+	purple-blue: #6699ff;
+*/
+
+@dark: #333;
+@light: #fff;
+@primary: #0099ff;
+@secondary: #ffcc33;
+@glass: rgba(255, 255, 255, 0.3);
+
+ *, :after, :before {
+	margin: 0;
+	padding: 0;
+	color: @light;
+	font-size: 1rem;
+	box-sizing: border-box;
+	font-family: 'Roboto Mono', monospace, sans-serif;
+
+	transition:
+		opacity 300ms ease-in-out,
+		color 300ms ease-in-out,
+		border 300ms ease-in-out,
+		background 300ms ease-in-out;
+}
+body, main {
+	width: 100vw;
+	height: 100vh;
+	overflow-x: hidden;
+}
+body {
+	background-color: @primary;
+}
+header {
+	width: 100%;
+	position: absolute;
+}
+a {
+	color: @secondary;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+hr {
+	width: 90%;
+	border: none;
+	margin: auto;
+	display: block;
+	border-radius: 1px;
+	border-bottom: solid 1px @secondary;
+}
+ul {
+	margin: 0.5rem;
+	padding: 0.5rem;
+	list-style: circle inside;
+}
+li {
+	padding: 1rem;
+}
+h1 {
+	margin: 0.5rem;
+	padding: 0.5rem;
+	font-size: 3rem;
+	font-weight: normal;
+	text-shadow: 0 3px 3px rgba(51, 51, 51, 0.1);
+}
+h2 {
+	margin: 0.5rem;
+	padding: 0.5rem;
+	font-size: 2rem;
+	font-weight: normal;
+	text-shadow: 0 3px 3px rgba(51, 51, 51, 0.1);
+}
+section {
+	width: 100%;
+	min-height: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+}
+.dark-bg {
+	background-color: @dark;
+}
+.blue-bg {
+	background-color: @primary;
+}
+.menu {
+	width: 100%;
+	padding: 0.5rem;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	justify-content: center;
+	background: @glass;
+	> a {
+		line-height: 2rem;
+		color: currentColor;
+		padding: 0.5rem 2rem;
+		display: inline-block;
+	}
+	> a:hover {
+		text-decoration: none;
+	}
+	> a:after {
+		content: '';
+		display: block;
+		border-radius: 1px;
+		border-bottom: solid 1px transparent;
+	}
+	> a:hover:after {
+		border-bottom-color: @light;
+	}
+}
+.title {
+	> h1 {
+		font-size: 3.5rem;
+	}
+	> h2 {
+		text-transform: uppercase;
+	}
+	> h1, h2 {
+		color: @light;
+		font-weight: 100;
+		text-align: center;
+	}
+}
+.arrow {
+	width: 100%;
+	height: 6rem;
+	display: block;
+	margin: -6rem auto auto auto;
+}
+.arrow::after {
+	content: '';
+	opacity: 1;
+    width: 3rem;
+    height: 3rem;
+	margin: auto;
+	border: none;
+	display: block;
+	border-radius: 1px;
+	position: relative;
+    transform: rotate(135deg);
+    border-top: solid 2px @light;
+    border-right: solid 2px @light;
+    animation-name: down;
+    animation-duration: 1.9s;
+    animation-iteration-count: infinite;
+}
+@keyframes down {
+    0% {
+        top: 0rem;
+    }
+    50% {
+		top: 2rem;
+    }
+    100% {
+		top: 0rem;
+    }
+}
