@@ -182,7 +182,6 @@ function start () {
 }
 
 function stop () {
-	console.log('stop');
 	window.cancelAnimationFrame(ID_ANIMATION);
 	RUN_ANIMATION = false;
 }
@@ -197,13 +196,13 @@ function stop () {
 //
 // }
 
-window.addEventListener('resize', function () {
-	window.requestAnimationFrame(function () {
-		stop();
-		resize();
-		start();
-	});
-});
+// CONTAINER.addEventListener('resize', function () {
+// 	window.requestAnimationFrame(function () {
+// 		stop();
+// 		resize();
+// 		start();
+// 	});
+// });
 
 window.addEventListener('load', function () {
 
