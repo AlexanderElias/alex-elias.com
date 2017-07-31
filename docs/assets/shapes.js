@@ -154,11 +154,8 @@ function resize () {
 function start () {
 	RUN_ANIMATION = true;
 
-	// var shapes = ['#fff', '#fff', '#f39', '#f93', '#3f9', '#39f', '#39f'].map(function (color) {
-	var shapes = ['#333', '#333', '#f39', '#f93', '#3f9', '#39f', '#39f'].map(function (color) {
-
-	// var shapes = ['#333', '#639`', '#963', '#396', '#369', '#369'].map(function (color) {
-	// var shapes = ['#fff', '#fff', '#963', '#963', '#369', '#369'].map(function (color) {
+	// var shapes = ['#fff', '#fff', '#f39', '#f93', '#3f9', '#39f', '#39f'].map(function (color) { // dark version
+	var shapes = ['#333', '#f39', '#f93', '#3f9', '#39f', '#39f'].map(function (color) {
 		return new RandomShape({
 			paths: 2,
 			fill: true,
@@ -203,17 +200,9 @@ window.addEventListener('resize', function () {
 	stop();
 	resize();
 	start();
-
-	setTimeout(function () {
-		stop();
-	}, 500);
 });
 
 window.addEventListener('load', function () {
 	resize();
 	start();
-
-	setTimeout(function () {
-		stop();
-	}, 500);
 });
