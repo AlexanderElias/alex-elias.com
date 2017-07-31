@@ -8,14 +8,15 @@ CONTAINER.appendChild(CANVAS);
 
 function Shape (options) {
 	// paths > points > cordinates
+	this.done = false;
 	this.opts = options.opts;
 	this.fill = options.fill;
 	this.stroke = options.stroke;
 	this.source = options.source;
 	this.target = options.target;
 	this.context = options.context;
+	this.infinite = options.infinite;
 	this.movePoint = options.movePoint;
-	this.done = options.target ? false : true;
 
 	this.type = options.type || 'lineTo';
 	this.xMin = options.xMin || function () { return 0; };
@@ -107,11 +108,12 @@ Shape.prototype.draw = function () {
 		this.context[this.type].apply(this.context, args);
 	}, this);
 
-	if (this.closePath) this.context.closePath();
+	this.context.closePath();
 
 	if (!this.done) this.increment();
 	if (this.done && this.infinite) this.setTarget();
 	else if (this.done && !this.infinite) stop();
+
 };
 
 function RandomShape (options) {
@@ -146,34 +148,35 @@ function animate (shapes) {
 function resize () {
 	CONTEXT.canvas.width = CONTAINER.clientWidth;
 	CONTEXT.canvas.height = CONTAINER.clientHeight;
-	CONTEXT.globalAlpha = 0.6;
-	CONTEXT.globalCompositeOperation = 'xor';
+	CONTEXT.globalAlpha = 0.9;
 }
 
 function start () {
 	RUN_ANIMATION = true;
 
-	var shapes = ['#ffffff', '#ffffff', '#ffcc33', '#ffcc33', '#0066CC', '#0066CC'].map(function (color) {
+	// var shapes = ['#fff', '#fff', '#f39', '#f93', '#3f9', '#39f', '#39f'].map(function (color) {
+	var shapes = ['#333', '#333', '#f39', '#f93', '#3f9', '#39f', '#39f'].map(function (color) {
+
+	// var shapes = ['#333', '#639`', '#963', '#396', '#369', '#369'].map(function (color) {
+	// var shapes = ['#fff', '#fff', '#963', '#963', '#369', '#369'].map(function (color) {
 		return new RandomShape({
 			paths: 2,
 			fill: true,
-			// stroke: true,
+			infinite: true,
 			context: CONTEXT,
 			opts: {
 				miterLimit: 3,
 				lineWidth: 1.5,
-				// globalAlpha: 0.3,
 
 				lineJoin:'round',
 				lineCap: 'round',
 
 				fillStyle: color,
-				// strokeStyle: color,
 
-				shadowBlur: 9,
+				shadowBlur: 6,
 				shadowOffsetX: 3,
 				shadowOffsetY: 3,
-				shadowColor: 'rgba(0, 0, 0, 0.3)'
+				shadowColor: 'rgba(0, 0, 0, 0.1)'
 			}
 		});
 	});
@@ -196,21 +199,21 @@ function stop () {
 //
 // }
 
-// CONTAINER.addEventListener('resize', function () {
-// 	window.requestAnimationFrame(function () {
-// 		stop();
-// 		resize();
-// 		start();
-// 	});
-// });
-
-window.addEventListener('load', function () {
-
-	// setTimeout(function () {
-	// 	stop();
-	// 	console.log('time');
-	// }, 9000);
-
+window.addEventListener('resize', function () {
+	stop();
 	resize();
 	start();
+
+	setTimeout(function () {
+		stop();
+	}, 500);
+});
+
+window.addEventListener('load', function () {
+	resize();
+	start();
+
+	setTimeout(function () {
+		stop();
+	}, 500);
 });
