@@ -139,9 +139,11 @@ function animate (shapes) {
 			shape.draw();
 		});
 
-		ID_ANIMATION = window.requestAnimationFrame(function () {
-			animate(shapes);
-		});
+		setTimeout(function () {
+			ID_ANIMATION = window.requestAnimationFrame(function () {
+				animate(shapes);
+			});
+		}, 20);
 	}
 }
 
@@ -196,11 +198,11 @@ function stop () {
 //
 // }
 
-window.addEventListener('resize', function () {
-	stop();
-	resize();
-	start();
-});
+// window.addEventListener('resize', function () {
+// 	stop();
+// 	resize();
+// 	start();
+// });
 
 window.addEventListener('load', function () {
 	resize();

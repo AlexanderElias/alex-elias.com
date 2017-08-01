@@ -89,7 +89,7 @@ h2 {
 .frame {
 	padding: 15px;
 	outline-offset: -15px;
-	outline: solid 1px transparent;
+	outline: solid 3px transparent;
 }
 
 .blue-bg {
@@ -147,9 +147,10 @@ h2 {
 	}
 	> .title {
 		> h1 {
-			padding: 9px 18px;
+			padding: 1rem 2rem;
+			// padding: 9px 18px;
 			text-shadow: none;
-			text-transform: capitalize;
+			text-transform: lowercase;
 			> small {
 				color: inherit;
 				font-weight: 100;
@@ -281,19 +282,20 @@ h2 {
 }
 
 @media screen and (max-width: 550px) {
-	h1 {
+	.art > .title > h1 {
+		padding: 1rem 1rem;
 		font-size: 2.5rem;
 	}
 }
 
-@media screen and (max-width: 470px) {
-	h1 {
-		font-size: 2rem;
+@media screen and (max-width: 500px) {
+	.art > .title > h1 {
+		font-size: 1.9rem;
 	}
 }
 
-@media screen and (max-width: 470px) {
-	h1 {
-		font-size: 1.5rem;
+@media screen and (max-width: 400px) {
+	.art > .title > h1 {
+		font-size: 1.6rem;
 	}
 }
