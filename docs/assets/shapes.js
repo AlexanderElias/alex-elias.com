@@ -4,6 +4,15 @@ var RUN_ANIMATION;
 var CONTAINER = document.querySelector('.shapes');
 var CANVAS = document.createElement('canvas');
 var CONTEXT = CANVAS.getContext('2d');
+
+var FPS = 1000/60;
+var BLACK = '#222';
+var BLUE = '#29f';
+var GREEN = '#2f9';
+var ORANGE = '#f92';
+var PINK = '#f29';
+var PURPLE = '#92f';
+
 CONTAINER.appendChild(CANVAS);
 
 function Shape (options) {
@@ -140,10 +149,8 @@ function animate (shapes) {
 		});
 
 		setTimeout(function () {
-			ID_ANIMATION = window.requestAnimationFrame(function () {
-				animate(shapes);
-			});
-		}, 20);
+			ID_ANIMATION = window.requestAnimationFrame(animate.bind(null, shapes));
+		}, FPS);
 	}
 }
 
@@ -156,21 +163,21 @@ function resize () {
 function start () {
 	RUN_ANIMATION = true;
 
-	// var shapes = ['#fff', '#fff', '#f39', '#f93', '#3f9', '#39f', '#39f'].map(function (color) { // dark version
-	var shapes = ['#333', '#333', '#f39', '#f93', '#3f9', '#39f', '#39f'].map(function (color) {
+	// dark version use WHITE
+	var shapes = [BLACK, PURPLE, PINK, GREEN, ORANGE, BLUE].map(function (color) {
 		return new RandomShape({
 			paths: 2,
 			fill: true,
 			infinite: true,
 			context: CONTEXT,
 			opts: {
-				miterLimit: 3,
-				lineWidth: 1.5,
-
-				lineJoin:'round',
-				lineCap: 'round',
-
 				fillStyle: color,
+
+				// miterLimit: 3,
+				// lineWidth: 1.5,
+
+				// lineJoin:'round',
+				// lineCap: 'round',
 
 				// shadowBlur: 6,
 				// shadowOffsetX: 3,
@@ -184,8 +191,16 @@ function start () {
 }
 
 function stop () {
+	console.log(ID_ANIMATION);
 	window.cancelAnimationFrame(ID_ANIMATION);
 	RUN_ANIMATION = false;
+}
+
+function restart () {
+	stop();
+	setTimeout(function () {
+		start();
+	}, 150);
 }
 
 // function click (e) {
@@ -203,6 +218,10 @@ function stop () {
 // 	resize();
 // 	start();
 // });
+
+CONTAINER.addEventListener('click', function () {
+	restart();
+});
 
 window.addEventListener('load', function () {
 	resize();

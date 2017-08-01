@@ -1,28 +1,36 @@
-var i;
 
-var menu = document.querySelector('.menu');
+// var menu = document.querySelector('.menu');
+//
+// if (menu) {
+// 	var path = window.location.origin + window.location.pathname;
+// 	for (var i = 0; i < menu.children.length; i++) {
+// 		if (menu.children[i].href === path) {
+// 			menu.children[i].classList.add('active');
+// 		} else {
+// 			menu.children[i].classList.remove('active');
+// 		}
+// 	}
+// }
 
-if (menu) {
-	var path = window.location.origin + window.location.pathname;
-	for (i = 0; i < menu.children.length; i++) {
-		if (menu.children[i].href === path) {
-			menu.children[i].classList.add('active');
-		} else {
-			menu.children[i].classList.remove('active');
-		}
-	}
-}
+// fonts
+var fonts = document.createElement('link');
+fonts.rel = 'stylesheet';
+fonts.href = '/assets/font-roboto-mono.min.css';
+document.head.insertBefore(fonts, document.head.querySelector('link'));
 
-var fills = document.querySelectorAll('.fill');
+// icons
+var icons = document.createElement('link');
+icons.rel = 'stylesheet';
+icons.href = '/assets/font-awesome.min.css';
+document.head.insertBefore(icons, document.head.querySelector('link'));
 
-if (fills) {
-	for (i = 0; i < fills.length; i++) {
-		fills[i].style.minHeight = window.innerHeight + 'px';
-	}
-}
+// fill
+var sStyle = document.createTextNode('.winhi { min-height: ' + window.innerHeight + 'px; }');
+var eStyle = document.createElement('style');
+eStyle.appendChild(sStyle);
+document.head.appendChild(eStyle);
 
 // scroll
-
 function scroll (x, y, d) {
 	x = x || 0;
 	y = y || 0;

@@ -1,6 +1,4 @@
-*,
-:after,
-:before {
+* {
   margin: 0;
   padding: 0;
   max-width: 100%;
@@ -9,24 +7,26 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-family: 'Roboto Mono', monospace, sans-serif;
-  transition: color 300ms ease-in-out, border 300ms ease-in-out, opacity 300ms ease-in-out, background 300ms ease-in-out, text-decoration 300ms ease-in-out;
+  transition: color 300ms ease-in-out, border 300ms ease-in-out, opacity 300ms ease-in-out, background 300ms ease-in-out, box-shadow 300ms ease-in-out, text-decoration 300ms ease-in-out;
 }
-header,
 footer {
-  z-index: 1;
-  width: 100%;
-  position: absolute;
+  display: flex;
+  flex: 1 0 auto;
 }
 a {
+  color: #29f;
   cursor: pointer;
-  color: #39f;
-  position: relative;
   border-radius: 1px;
+  display: inline-block;
   text-decoration: none;
   border-bottom: solid 1px transparent;
 }
 a:hover {
-  border-bottom-color: #f93;
+  border-bottom-color: #f29;
+}
+p {
+  padding: 1rem;
+  max-width: 900px;
 }
 ul {
   margin: 0.5rem;
@@ -39,12 +39,73 @@ li {
 h1 {
   padding: 1rem;
   font-size: 3rem;
-  font-weight: 400;
+  font-weight: 300;
 }
 h2 {
   padding: 1rem;
   font-size: 2rem;
-  font-weight: 400;
+  font-weight: 300;
+}
+.button {
+  border: none;
+  margin: 1rem;
+  border-width: 1px;
+  border-style: solid;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  box-shadow: 0 3px 3px rgba(51, 51, 51, 0.3);
+}
+.button:hover {
+  box-shadow: 0 3px 6px rgba(51, 51, 51, 0.6);
+}
+.button.orange {
+  color: #f92;
+  border-color: #f92;
+}
+.button.orange:hover {
+  color: #222;
+  background-color: #f92;
+}
+.button.green {
+  color: #2f9;
+  border-color: #2f9;
+}
+.button.green:hover {
+  color: #222;
+  background-color: #2f9;
+}
+.fa {
+  font-size: 3rem;
+}
+.media {
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.media > a {
+  padding: 0.5rem;
+}
+.row {
+  flex-direction: row;
+}
+.column {
+  flex-direction: column;
+}
+.end {
+  align-self: flex-end;
+}
+.start {
+  align-self: flex-start;
+}
+.s-center {
+  align-self: center;
+}
+.wrap {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
 }
 .center {
   display: flex;
@@ -53,50 +114,81 @@ h2 {
   justify-content: center;
 }
 .fill {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex: 1 1 auto;
-  min-width: 100%;
-  min-height: 100%;
-}
-.edges {
-  box-shadow: inset 0 0 32px rgba(0, 0, 0, 0.3);
-}
-.frame {
-  padding: 15px;
-  outline-offset: -15px;
-  outline: solid 3px transparent;
-}
-.blue-bg {
-  background-color: #39f;
-}
-.art > div:nth-child(1) {
-  align-self: flex-start;
-}
-.art > div:nth-child(3) {
-  align-self: flex-end;
-}
-.art > .shapes {
-  width: 100%;
-  height: 100%;
   display: flex;
   flex: 1 0 auto;
-  pointer-events: none;
 }
-.art > .title > h1 {
-  padding: 1rem 2rem;
-  text-shadow: none;
+.shapes {
+  display: flex;
+  flex: 1 0 auto;
+}
+.art {
+  padding: 15px;
+  outline-offset: -15px;
+  outline: solid 1px transparent;
+}
+.art .title.start {
+  align-self: flex-start;
+}
+.art .title.end {
+  align-self: flex-end;
+}
+.art .title > h1 {
+  padding: 1rem 1rem;
   text-transform: lowercase;
 }
-.art > .title > h1 > small {
+.art .title > h1 > small {
   color: inherit;
   font-weight: 100;
   font-size: inherit;
   text-shadow: inherit;
   text-transform: inherit;
 }
+.light .fa {
+  color: #fff;
+}
+.light .frame {
+  outline-color: #222;
+}
+.light .arrow:after {
+  border-color: #222;
+}
+.light .art {
+  outline-color: #222;
+  background-color: #fff;
+}
+.light .art > .title > h1 {
+  color: #222;
+}
+.light .about {
+  background-color: #222;
+}
+.light .about h2,
+.light .about p {
+  color: #fff;
+}
+.light .media {
+  background-color: #29f;
+}
+.dark .fa {
+  color: #222;
+}
+.dark .frame {
+  outline-color: #fff;
+}
+.dark .arrow:after {
+  border-color: #fff;
+}
+.dark .art .title h1 {
+  color: #fff;
+}
+.dark .art {
+  background-color: #222;
+}
+.dark .media {
+  background-color: #29f;
+}
 .arrow {
+  bottom: 0;
   width: 3rem;
   height: 3rem;
   bottom: 18px;
@@ -104,6 +196,7 @@ h2 {
   display: block;
   cursor: pointer;
   position: absolute;
+  align-self: center;
   text-decoration: none;
 }
 .arrow:hover {
@@ -134,86 +227,96 @@ h2 {
     transform: translateY(0) rotate(135deg);
   }
 }
-.light .frame {
-  outline-color: #333;
+@media screen and (max-width: 1400px) {
+  h1 {
+    font-size: 2.6rem;
+  }
+  h2 {
+    font-size: 2.6rem;
+  }
 }
-.light .arrow:after {
-  border-color: #333;
+@media screen and (max-width: 1300px) {
+  h1 {
+    font-size: 2.3rem;
+  }
+  h2 {
+    font-size: 2.3rem;
+  }
 }
-.light .art .title h1 {
-  color: #333;
+@media screen and (max-width: 1200px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
 }
-.light main > div {
-  background-size: 6px 6px;
-}
-.light main > div:nth-child(1) > * {
-  color: #333;
-}
-.light main > div:nth-child(1) {
-  background-color: #fff;
-}
-.light main > div:nth-child(2) > * {
-  color: #fff;
-}
-.light main > div:nth-child(2) {
-  background-color: #333;
-}
-.dark .frame {
-  outline-color: #fff;
-}
-.dark .arrow:after {
-  border-color: #fff;
-}
-.dark .art .title h1 {
-  color: #fff;
-}
-.dark main > div {
-  background-size: 6px 6px;
-}
-.dark main > div:nth-child(1) > * {
-  color: #fff;
-}
-.dark main > div:nth-child(1) {
-  background-color: #333;
-  background-image: linear-gradient(-135deg, transparent 20%, rgba(255, 255, 255, 0.03) 20%, rgba(255, 255, 255, 0.03) 30%, transparent 30%, transparent 70%, rgba(255, 255, 255, 0.03) 70%, rgba(255, 255, 255, 0.03) 80%, transparent 80%), linear-gradient(135deg, transparent 20%, rgba(255, 255, 255, 0.03) 20%, rgba(255, 255, 255, 0.03) 30%, rgba(255, 255, 255, 0.03) 30%, rgba(255, 255, 255, 0.03) 40%, transparent 40%, transparent 70%, rgba(255, 255, 255, 0.03) 70%, rgba(255, 255, 255, 0.03) 80%, rgba(255, 255, 255, 0.03) 80%, rgba(255, 255, 255, 0.03) 90%, transparent 90%);
-}
-.dark main > div:nth-child(2) > * {
-  color: #333;
-}
-.dark main > div:nth-child(2) {
-  background-color: #fff;
-  background-image: linear-gradient(-135deg, transparent 20%, rgba(0, 0, 0, 0.03) 20%, rgba(0, 0, 0, 0.03) 30%, transparent 30%, transparent 70%, rgba(0, 0, 0, 0.03) 70%, rgba(0, 0, 0, 0.03) 80%, transparent 80%), linear-gradient(135deg, transparent 20%, rgba(0, 0, 0, 0.03) 20%, rgba(0, 0, 0, 0.03) 30%, rgba(0, 0, 0, 0.03) 30%, rgba(0, 0, 0, 0.03) 40%, transparent 40%, transparent 70%, rgba(0, 0, 0, 0.03) 70%, rgba(0, 0, 0, 0.03) 80%, rgba(0, 0, 0, 0.03) 80%, rgba(0, 0, 0, 0.03) 90%, transparent 90%);
-}
-@media screen and (max-width: 1100px) {
-  .art > div:nth-child(1) {
+@media screen and (max-width: 1000px) {
+  h1 {
+    font-size: 2.6rem;
+  }
+  h2 {
+    font-size: 2.6rem;
+  }
+  .art .title.start {
     order: 1;
     padding-top: 3rem;
     align-self: center;
   }
-  .art > div:nth-child(2) {
-    order: 3;
-  }
-  .art > div:nth-child(3) {
+  .art .title.end {
     order: 2;
     align-self: center;
   }
-  .art > div:nth-child(4) {
+  .art .shapes {
+    order: 3;
+  }
+  .art .arrow {
     order: 4;
   }
 }
+@media screen and (max-width: 600px) {
+  .wrap {
+    padding: 1rem;
+  }
+  h1 {
+    font-size: 2.3rem;
+  }
+  h2 {
+    font-size: 2.3rem;
+  }
+}
 @media screen and (max-width: 550px) {
-  .art > .title > h1 {
-    padding: 1rem 1rem;
-    font-size: 2.5rem;
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 2rem;
   }
 }
 @media screen and (max-width: 500px) {
-  .art > .title > h1 {
+  h1 {
     font-size: 1.9rem;
+  }
+  h2 {
+    font-size: 1.9rem;
+  }
+  p {
+    font-size: 0.9rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+  h2 {
+    font-size: 1.6rem;
   }
 }
 @media screen and (max-width: 400px) {
-  .art > .title > h1 {
-    font-size: 1.6rem;
+  h1 {
+    font-size: 1.3rem;
+  }
+  h2 {
+    font-size: 1.3rem;
   }
 }

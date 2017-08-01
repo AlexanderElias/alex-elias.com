@@ -7,21 +7,18 @@
     "doc": "docs"
   },
   "dependencies": {
-    "astatine": "^1.1.6",
-    "erbium": "^1.4.3",
-    "flexboxgrid": "^6.3.1",
-    "rutta": "^1.0.3"
+    "font-awesome": "^4.7.0"
   },
   "devDependencies": {},
   "scripts": {
-	"serve": "muleify serve -w src dist",
+    "serve": "muleify serve -w src dist",
     "build": "rm -r dist/* && rm -r docs/* && muleify pack src dist && muleify pack src docs"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AlexanderElias/alex-elias.com.git"
   },
-  "author": "Alexander Steven Elias",
+  "author": "Alexander Elias",
   "license": "SEE LICENSE IN LICENSE",
   "bugs": {
     "url": "https://github.com/AlexanderElias/alex-elias.com/issues"

@@ -1,24 +1,27 @@
-@dark: #333;
+@dark: #222;
 @light: #fff;
-@blue: #39f;
-@orange: #f93;
-@pink: #f39;
+@blue: #29f;
+@green: #2f9;
+@orange: #f92;
+@pink: #f29;
+@purple: #92f;
 @glass: rgba(255, 255, 255, 0.3);
-@shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+@light-shadow: 0 3px 3px rgba(51, 51, 51, 0.3);
+@dark-shadow: 0 3px 6px rgba(51, 51, 51, 0.6);
 
-@dark-pattern: linear-gradient(
-	-135deg, transparent 20%, rgba(0,0,0,0.03) 20%, rgba(0,0,0,0.03) 30%, transparent 30%, transparent 70%, rgba(0,0,0,0.03) 70%, rgba(0,0,0,0.03) 80%,
-	transparent 80%), linear-gradient(135deg, transparent 20%, rgba(0,0,0,0.03) 20%, rgba(0,0,0,0.03) 30%, rgba(0,0,0,0.03) 30%, rgba(0,0,0,0.03) 40%,
-	transparent 40%, transparent 70%, rgba(0,0,0,0.03) 70%, rgba(0,0,0,0.03) 80%, rgba(0,0,0,0.03) 80%, rgba(0,0,0,0.03) 90%, transparent 90%
-);
+// @dark-pattern: linear-gradient(
+// 	-135deg, transparent 20%, rgba(0,0,0,0.03) 20%, rgba(0,0,0,0.03) 30%, transparent 30%, transparent 70%, rgba(0,0,0,0.03) 70%, rgba(0,0,0,0.03) 80%,
+// 	transparent 80%), linear-gradient(135deg, transparent 20%, rgba(0,0,0,0.03) 20%, rgba(0,0,0,0.03) 30%, rgba(0,0,0,0.03) 30%, rgba(0,0,0,0.03) 40%,
+// 	transparent 40%, transparent 70%, rgba(0,0,0,0.03) 70%, rgba(0,0,0,0.03) 80%, rgba(0,0,0,0.03) 80%, rgba(0,0,0,0.03) 90%, transparent 90%
+// );
+//
+// @light-pattern: linear-gradient(
+// 	-135deg, transparent 20%, rgba(255,255,255,0.03) 20%, rgba(255,255,255,0.03) 30%, transparent 30%, transparent 70%, rgba(255,255,255,0.03) 70%, rgba(255,255,255,0.03) 80%,
+// 	transparent 80%), linear-gradient(135deg, transparent 20%, rgba(255,255,255,0.03) 20%, rgba(255,255,255,0.03) 30%, rgba(255,255,255,0.03) 30%, rgba(255,255,255,0.03) 40%,
+// 	transparent 40%, transparent 70%, rgba(255,255,255,0.03) 70%, rgba(255,255,255,0.03) 80%, rgba(255,255,255,0.03) 80%, rgba(255,255,255,0.03) 90%, transparent 90%
+// );
 
-@light-pattern: linear-gradient(
-	-135deg, transparent 20%, rgba(255,255,255,0.03) 20%, rgba(255,255,255,0.03) 30%, transparent 30%, transparent 70%, rgba(255,255,255,0.03) 70%, rgba(255,255,255,0.03) 80%,
-	transparent 80%), linear-gradient(135deg, transparent 20%, rgba(255,255,255,0.03) 20%, rgba(255,255,255,0.03) 30%, rgba(255,255,255,0.03) 30%, rgba(255,255,255,0.03) 40%,
-	transparent 40%, transparent 70%, rgba(255,255,255,0.03) 70%, rgba(255,255,255,0.03) 80%, rgba(255,255,255,0.03) 80%, rgba(255,255,255,0.03) 90%, transparent 90%
-);
-
-*, :after, :before {
+* {
 	margin: 0;
 	padding: 0;
 	max-width: 100%;
@@ -33,23 +36,32 @@
 		border 300ms ease-in-out,
 		opacity 300ms ease-in-out,
 		background 300ms ease-in-out,
+		box-shadow 300ms ease-in-out,
 		text-decoration 300ms ease-in-out;
 }
-header, footer {
-	z-index: 1;
-	width: 100%;
-	position: absolute;
+// header, footer {
+// 	z-index: 1;
+// 	width: 100%;
+// 	position: absolute;
+// }
+footer {
+	display: flex;
+	flex: 1 0 auto;
 }
 a {
-	cursor: pointer;
 	color: @blue;
-	position: relative;
+	cursor: pointer;
 	border-radius: 1px;
+	display: inline-block;
 	text-decoration: none;
 	border-bottom: solid 1px transparent;
 }
 a:hover {
-	border-bottom-color: @orange;
+	border-bottom-color: @pink;
+}
+p {
+	padding: 1rem;
+	max-width: 900px;
 }
 ul {
 	margin: 0.5rem;
@@ -62,12 +74,79 @@ li {
 h1 {
 	padding: 1rem;
 	font-size: 3rem;
-	font-weight: 400;
+	font-weight: 300;
 }
 h2 {
 	padding: 1rem;
 	font-size: 2rem;
-	font-weight: 400;
+	font-weight: 300;
+}
+// .light-bg {
+// 	background-color: @light;
+// }
+// .dark-bg {
+// 	background-color: @dark;
+// }
+.button {
+	border: none;
+	margin: 1rem;
+	border-width: 1px;
+	border-style: solid;
+	padding: 0.5rem 1rem;
+	text-decoration: none;
+	text-transform: uppercase;
+	box-shadow: @light-shadow;
+}
+.button:hover {
+	box-shadow: @dark-shadow;
+}
+.button.orange {
+	color: @orange;
+	border-color: @orange;
+}
+.button.orange:hover {
+	color: @dark;
+	background-color: @orange;
+}
+.button.green {
+	color: @green;
+	border-color: @green;
+}
+.button.green:hover {
+	color: @dark;
+	background-color: @green;
+}
+.fa {
+	font-size: 3rem;
+}
+.media {
+	flex: 1 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	> a {
+		padding: 0.5rem;
+	}
+}
+.row {
+	flex-direction: row;
+}
+.column {
+	flex-direction: column;
+}
+.end {
+	align-self: flex-end;
+}
+.start {
+	align-self: flex-start;
+}
+.s-center {
+	align-self: center;
+}
+.wrap {
+	padding: 3rem;
+	display: flex;
+	flex-direction: column;
 }
 .center {
 	display: flex;
@@ -76,25 +155,17 @@ h2 {
 	justify-content: center;
 }
 .fill {
-	width: 100%;
-	height: 100%;
 	display: flex;
-	flex: 1 1 auto;
-	min-width: 100%;
-	min-height: 100%;
+	flex: 1 0 auto;
 }
-.edges {
-	box-shadow: inset 0 0 32px rgba(0, 0, 0, 0.3);
-}
-.frame {
-	padding: 15px;
-	outline-offset: -15px;
-	outline: solid 3px transparent;
-}
-
-.blue-bg {
-	background-color: @blue;
-}
+// .frame {
+// 	padding: 15px;
+// 	outline-offset: -15px;
+// 	outline: solid 1px transparent;
+// }
+// .edges {
+// 	box-shadow: inset 0 0 32px rgba(0, 0, 0, 0.3);
+// }
 // .menu {
 // 	width: 100%;
 // 	padding: 2rem;
@@ -107,7 +178,7 @@ h2 {
 // 		padding: 0.5rem;
 // 		color: @light;
 // 		line-height: 2rem;
-// 		text-shadow: @shadow;
+// 		text-shadow: @light-shadow;
 // 		display: inline-block;
 // 		text-transform: uppercase;
 // 	}
@@ -126,30 +197,28 @@ h2 {
 //     border-radius: 300px;
 // 	background-color: @blue;
 //     // background: rgba(0, 102, 204, 0.3);
-// 	box-shadow: @shadow;
+// 	box-shadow: @light-shadow;
 // 	> img {
 // 		filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.6));
 // 	}
 // }
+.shapes {
+	display: flex;
+	flex: 1 0 auto;
+}
 .art {
-	> div:nth-child(1) {
+	padding: 15px;
+	outline-offset: -15px;
+	outline: solid 1px transparent;
+	.title.start {
 		align-self: flex-start;
 	}
-	> div:nth-child(3) {
+	.title.end {
 		align-self: flex-end;
 	}
-	> .shapes {
-		width: 100%;
-		height: 100%;
-		display: flex;
-		flex: 1 0 auto;
-		pointer-events: none;
-	}
-	> .title {
+	.title {
 		> h1 {
-			padding: 1rem 2rem;
-			// padding: 9px 18px;
-			text-shadow: none;
+			padding: 1rem 1rem;
 			text-transform: lowercase;
 			> small {
 				color: inherit;
@@ -161,7 +230,66 @@ h2 {
 		}
 	}
 }
+
+// .about {
+// 	justify-content: center;
+// 	flex-direction: column;
+// }
+
+// themes
+.light {
+	.fa {
+		color: @light;
+	}
+	.frame {
+		outline-color: @dark;
+	}
+	.arrow:after {
+	    border-color: @dark;
+	    border-color: @dark;
+	}
+	.art {
+		outline-color: @dark;
+		background-color: @light;
+		> .title > h1 {
+			color: @dark;
+		}
+	}
+	.about {
+		background-color: @dark;
+		h2, p {
+			color: @light;
+		}
+	}
+	.media {
+		background-color: @blue;
+	}
+}
+.dark {
+	.fa {
+		color: @dark;
+	}
+	.frame {
+		outline-color: @light;
+	}
+	.arrow:after {
+	    border-color: @light;
+	    border-color: @light;
+	}
+	.art .title h1 {
+		color: @light;
+	}
+	.art {
+		background-color: @dark;
+	}
+	.media {
+		background-color: @blue;
+	}
+}
+
+// animations
 .arrow {
+	bottom: 0;
 	width: 3rem;
 	height: 3rem;
 	bottom: 18px;
@@ -169,6 +297,7 @@ h2 {
 	display: block;
 	cursor: pointer;
 	position: absolute;
+	align-self: center;
 	text-decoration: none;
 }
 .arrow:hover {
@@ -201,101 +330,97 @@ h2 {
     }
 }
 
-// light theme
-.light {
-	.frame {
-		outline-color: @dark;
+// mobile
+@media screen and (max-width: 1400px) {
+	h1 {
+		font-size: 2.6rem;
 	}
-	.arrow:after {
-	    border-color: @dark;
-	    border-color: @dark;
-	}
-	.art .title h1 {
-		color: @dark;
-	}
-	main > div {
-		background-size: 6px 6px;
-	}
-	main > div:nth-child(1) > * {
-		color: @dark;
-	}
-	main > div:nth-child(1) {
-		background-color: @light;
-		// background-image: @dark-pattern;
-	}
-	main > div:nth-child(2) > * {
-		color: @light;
-	}
-	main > div:nth-child(2) {
-		background-color: @dark;
-		// background-image: @light-pattern;
+	h2 {
+		font-size: 2.6rem;
 	}
 }
-
-// dark theme
-.dark {
-	.frame {
-		outline-color: @light;
+@media screen and (max-width: 1300px) {
+	h1 {
+		font-size: 2.3rem;
 	}
-	.arrow:after {
-	    border-color: @light;
-	    border-color: @light;
-	}
-	.art .title h1 {
-		color: @light;
-	}
-	main > div {
-		background-size: 6px 6px;
-	}
-	main > div:nth-child(1) > * {
-		color: @light;
-	}
-	main > div:nth-child(1) {
-		background-color: @dark;
-		background-image: @light-pattern;
-	}
-	main > div:nth-child(2) > * {
-		color: @dark;
-	}
-	main > div:nth-child(2) {
-		background-color: @light;
-		background-image: @dark-pattern;
+	h2 {
+		font-size: 2.3rem;
 	}
 }
-
-@media screen and (max-width: 1100px) {
-	.art > div:nth-child(1) {
+@media screen and (max-width: 1200px) {
+	h1 {
+		font-size: 2rem;
+	}
+	h2 {
+		font-size: 2rem;
+	}
+}
+@media screen and (max-width: 1000px) {
+	h1 {
+		font-size: 2.6rem;
+	}
+	h2 {
+		font-size: 2.6rem;
+	}
+	.art .title.start {
 		order: 1;
 		padding-top: 3rem;
 		align-self: center;
 	}
-	.art > div:nth-child(2) {
-		order: 3;
-	}
-	.art > div:nth-child(3) {
+	.art .title.end {
 		order: 2;
 		align-self: center;
 	}
-	.art > div:nth-child(4) {
+	.art .shapes {
+		order: 3;
+	}
+	.art .arrow {
 		order: 4;
 	}
 }
-
-@media screen and (max-width: 550px) {
-	.art > .title > h1 {
-		padding: 1rem 1rem;
-		font-size: 2.5rem;
+@media screen and (max-width: 600px) {
+	.wrap {
+		padding: 1rem;
+	}
+	h1 {
+		font-size: 2.3rem;
+	}
+	h2 {
+		font-size: 2.3rem;
 	}
 }
-
+@media screen and (max-width: 550px) {
+	h1 {
+		font-size: 2rem;
+	}
+	h2 {
+		font-size: 2rem;
+	}
+}
 @media screen and (max-width: 500px) {
-	.art > .title > h1 {
+	h1 {
 		font-size: 1.9rem;
 	}
+	h2 {
+		font-size: 1.9rem;
+	}
+	p {
+		font-size: 0.9rem;
+	}
 }
-
-@media screen and (max-width: 400px) {
-	.art > .title > h1 {
+@media screen and (max-width: 450px) {
+	h1 {
 		font-size: 1.6rem;
+	}
+	h2 {
+		font-size: 1.6rem;
+	}
+}
+@media screen and (max-width: 400px) {
+	h1 {
+		font-size: 1.3rem;
+	}
+	h2 {
+		font-size: 1.3rem;
 	}
 }
