@@ -25,45 +25,15 @@
 	<link rel="preload" href="/global.js" as="script">
 	<script src="/global.js" defer></script>
 </head>
-<body class="light">
+<body class="white bc">
 
-	<header>
-		<!-- <div class="menu">
-			<a href="/">Root</a>
-			<a href="/projects">Projects</a>
-			<a href="/contact">Contact</a>
-		</div> -->
-	</header>
+	<!-- <div class="menu">
+		<a href="/">Root</a>
+		<a href="/projects">Projects</a>
+		<a href="/contact">Contact</a>
+	</div> -->
 
-	<main>
-		
-<!-- <style>
-	.nav {
-		top: 0;
-		right: 0;
-		width: 1rem;
-		height: 100%;
-		position: fixed;
-	}
-</style>
-
-<div class="nav" data-items="art, about"></div>
-
-<script>
-	var nav = document.querySelector('.nav');
-	var items = nav.getAttribute('data-items').split(/,?\s/);
-
-	var element = document.createElement('div');
-	element.setAttribute('class', 'nav-item');
-
-	items.forEach(function (item) {
-		e = element.cloneNode();
-		p = document.querySelector('.' + item);
-		e.setAttribute('data-position', p);
-		nav.appendChild(e);
-	});
-</script> -->
-
+	
 <div class="shapes"></div>
 
 <div class="art zero fill column between">
@@ -73,10 +43,13 @@
 	<div class="box end">
 		<h1>developer <small>&amp;</small> designer</h1>
 	</div>
-	<!-- <div class="arrow s-center"></div> -->
+	<div class="arrow"></div>
 </div>
 
 <div class="art one fill column middle">
+	<div class="box center">
+		<h2>entrepreneur<small>,</small></h2>
+	</div>
 	<div class="box center">
 		<h2>front<small>-</small>end<small>,</small></h2>
 	</div>
@@ -88,40 +61,37 @@
 	</div>
 </div>
 
-<div class="about blue fill column middle center">
-	<div class="center">
-		<h2 class="start">about me</h2>
-		<p>
-			I am a developer and designer from Tucson, Arizona.
-			My experience ranges from front-end to back-end and mobile.
-			Building web sites, web apps, servers, and mobile apps is what I do for work and fun.
-		</p>
-		<p>
-			My favorite technologies/languages are Node.js, JavaScript, and Rust.
-			I maintain a number of open and closed source projects on <a href="https://github.com/AlexanderElias/" target="_blank" rel="noopener">GitHub</a> and <a href="https://www.npmjs.com/~alexanderelias" target="_blank" rel="noopener">NPM</a>.
-		</p>
-		<a class="button end green" href="/resume">Resume</a>
-		<a class="button end orange" href="/contact">Contact</a>
+<div class="about fill column middle">
+	<div class="wrap column center">
+		<div class="box start">
+			<h2>about me</h2>
+		</div>
+		<div class="box center">
+			<p>
+				I am an entrepreneur, developer, and designer from Tucson, Arizona.
+				My experience ranges from front-end to back-end and mobile applications.
+				Building web apps, web sites, servers, and mobile apps is what I do for work and fun.
+			</p>
+		</div>
+		<div class="box center">
+			<p>
+				My favorite technologies/languages are Node.js, JavaScript, and Rust.
+				I maintain a number of open-source and close-source projects on <a class="blue fc" href="https://github.com/AlexanderElias/" target="_blank" rel="noopener">GitHub</a> and <a class="green fc" href="https://www.npmjs.com/~alexanderelias" target="_blank" rel="noopener">NPM</a>.
+				You can check out my <a class="orange fc" href="https://www.linkedin.com/in/alexander-elias-0b148a102/" target="_blank" rel="noopener">Linkedin</a> and <a class="pink fc" href="https://www.facebook.com/PigeonJeorge" target="_blank" rel="noopener">Facebook</a> profiles.
+				I am avaliable for hire you can view my digital resume or send me an email. The link is right over there. -->
+			</p>
+		</div>
+		<div class="box end">
+			<a class="purple fc" href="/contact">Contact Me</a>
+		</div>
+		<div class="box end">
+			<a class="lime fc" href="/resume">My Resume</a>
+		</div>
 	</div>
 </div>
 
 <script src="/index.js" defer></script>
 
-	</main>
-
-	<footer>
-		<div class="media black">
-			<a href="https://github.com/AlexanderElias/" target="_blank" rel="noopener">
-				<i class="fa fa-github-square" aria-hidden="true"></i>
-			</a>
-			<a href="https://www.linkedin.com/in/alexander-elias-0b148a102/" target="_blank" rel="noopener">
-				<i class="fa fa-linkedin-square" aria-hidden="true"></i>
-			</a>
-			<a href="https://www.facebook.com/PigeonJeorge" target="_blank" rel="noopener">
-				<i class="fa fa-facebook-square" aria-hidden="true"></i>
-			</a>
-		</div>
-	</footer>
 
 </body>
 </html>

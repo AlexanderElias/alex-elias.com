@@ -1,20 +1,22 @@
-@dark: #222;
-@light: #fff;
+@black: #222;
+@white: #fff;
 @blue: #29f;
 @green: #2f9;
 @orange: #f92;
 @pink: #f29;
 @purple: #92f;
-@dark-transparent: rgba(34, 34, 34, 0.3);
-@shadow: 0 3px 9px @dark-transparent;
+@lime: #9f2;
+@gray: #999;
+@black-transparent: rgba(34, 34, 34, 0.3);
+@shadow: 0 3px 9px @black-transparent;
 
-// @dark-pattern: linear-gradient(
+// @black-pattern: linear-gradient(
 // 	-135deg, transparent 20%, rgba(0,0,0,0.03) 20%, rgba(0,0,0,0.03) 30%, transparent 30%, transparent 70%, rgba(0,0,0,0.03) 70%, rgba(0,0,0,0.03) 80%,
 // 	transparent 80%), linear-gradient(135deg, transparent 20%, rgba(0,0,0,0.03) 20%, rgba(0,0,0,0.03) 30%, rgba(0,0,0,0.03) 30%, rgba(0,0,0,0.03) 40%,
 // 	transparent 40%, transparent 70%, rgba(0,0,0,0.03) 70%, rgba(0,0,0,0.03) 80%, rgba(0,0,0,0.03) 80%, rgba(0,0,0,0.03) 90%, transparent 90%
 // );
 //
-// @light-pattern: linear-gradient(
+// @white-pattern: linear-gradient(
 // 	-135deg, transparent 20%, rgba(255,255,255,0.03) 20%, rgba(255,255,255,0.03) 30%, transparent 30%, transparent 70%, rgba(255,255,255,0.03) 70%, rgba(255,255,255,0.03) 80%,
 // 	transparent 80%), linear-gradient(135deg, transparent 20%, rgba(255,255,255,0.03) 20%, rgba(255,255,255,0.03) 30%, rgba(255,255,255,0.03) 30%, rgba(255,255,255,0.03) 40%,
 // 	transparent 40%, transparent 70%, rgba(255,255,255,0.03) 70%, rgba(255,255,255,0.03) 80%, rgba(255,255,255,0.03) 80%, rgba(255,255,255,0.03) 90%, transparent 90%
@@ -24,13 +26,17 @@
 	margin: 0;
 	padding: 0;
 	max-width: 100%;
-	font-size: 16px;
+	font-size: 14px;
 	box-sizing: border-box;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	font-family: 'Roboto Mono', monospace, sans-serif;
+	transition:
+		fill 300ms ease,
+		color 300ms ease,
+		opacity 300ms ease,
+		background 300ms ease;
 
-	transition: all 300ms ease;
 }
 footer {
 	display: flex;
@@ -41,7 +47,7 @@ a {
 	border-radius: 1px;
 	display: inline-block;
 	text-decoration: none;
-	border-bottom: solid 1px transparent;
+	border-bottom: solid 1px currentColor;
 }
 p {
 	padding: 1rem;
@@ -50,7 +56,8 @@ p {
 ul {
 	margin: 0.5rem;
 	padding: 0.5rem;
-	list-style: circle inside;
+	list-style: none;
+	// list-style: circle outside;
 }
 li {
 	padding: 1rem;
@@ -83,14 +90,14 @@ h3 {
 	padding: 0.5rem 1rem;
 	text-decoration: none;
 	text-transform: uppercase;
-	box-shadow: 0 3px 3px @dark-transparent;
+	box-shadow: 0 3px 3px @black-transparent;
 }
 .button:hover {
-	box-shadow: 0 6px 6px @dark-transparent;
+	box-shadow: 0 6px 6px @black-transparent;
 }
 
 .fa {
-	font-size: 3rem;
+    font-size: 2.3rem;
 }
 
 // layout
@@ -115,18 +122,24 @@ h3 {
 .middle {
 	justify-content: center;
 }
+.wrap {
+	// flex: 1
+	display: flex;
+	max-width: 900px;
+}
 .fill {
 	flex: 1;
 	width: 100vw;
-	height: 100vh;
 	display: flex;
+	min-height: 100vh;
 }
 
 // items
 .box {
 	padding: 1rem;
-	margin: 0.5rem;
 	display: flex;
+	margin: 0.5rem;
+	max-width: 900px;
 	box-shadow: @shadow;
 	h1, h2, h3 {
 		text-transform: lowercase;
@@ -138,78 +151,42 @@ h3 {
 	height: 100%;
 	position: fixed;
 }
-// .menu {
-// 	width: 100%;
-// 	padding: 2rem;
-// 	display: flex;
-// 	align-items: center;
-// 	flex-direction: row;
-// 	justify-content: center;
-// 	> a {
-// 		margin: 0 1rem;
-// 		padding: 0.5rem;
-// 		color: @light;
-// 		line-height: 2rem;
-// 		text-shadow: @shadow;
-// 		display: inline-block;
-// 		text-transform: uppercase;
-// 	}
-// 	a.active {
-// 		border-bottom-color: @light;
-// 	}
-// 	a:hover {
-// 		border-bottom-color: @light;
-// 	}
-// }
-// .profile {
-// 	z-index: 1;
-//     height: 300px;
-//     width: 300px;
-//     overflow: hidden;
-//     border-radius: 300px;
-// 	background-color: @blue;
-//     // background: rgba(0, 102, 204, 0.3);
-// 	box-shadow: @shadow;
-// 	> img {
-// 		filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.6));
-// 	}
-// }
-// .arrow {
-// 	bottom: 0;
-// 	width: 3rem;
-// 	height: 3rem;
-// 	bottom: 18px;
-// 	border: none;
-// 	display: block;
-// 	cursor: pointer;
-// 	// position: absolute;
-// 	align-self: center;
-// 	text-decoration: none;
-// }
-// .arrow:hover {
-// 	border: none;
-// }
-// .arrow:after {
-// 	content: '';
-// 	margin: auto;
-// 	border: none;
-//     width: 2.5rem;
-//     height: 2.5rem;
-// 	display: block;
-//     border-top: solid 1px transparent;
-//     border-right: solid 1px transparent;
-//     animation-name: down;
-//     animation-duration: 3s;
-//     animation-iteration-count: infinite;
-// 	transform: translateY(0) rotate(135deg);
-// }
+.arrow {
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 3rem;
+	bottom: 18px;
+	border: none;
+	display: none;
+	cursor: pointer;
+	position: absolute;
+}
+.arrow:hover {
+	border: none;
+}
+.arrow:after {
+	content: '';
+	margin: auto;
+	border: none;
+    width: 2.5rem;
+    height: 2.5rem;
+	display: block;
+    border-top: solid 1px transparent;
+    border-right: solid 1px transparent;
+    animation-name: down;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+	transform: translateY(0) rotate(135deg);
+}
 
 // sections
 .art {
 	padding: 1rem;
 }
 .about {
-	box-shadow: 0 -3px 9px @dark-transparent;
+	padding: 1rem;
+	// box-shadow: 0 -3px 9px @black-transparent;
 }
 .media {
 	flex: 1 0 auto;
@@ -222,71 +199,117 @@ h3 {
 }
 
 // colors
-.orange {
-	color: @dark;
-	background-color: @orange;
-	> h1, > h2, > h3, > p, > i, > a {
-		color: @dark;
-	}
-	a {
-		border-bottom-color: @light;
+li {
+	i {
+		color: @gray;
 	}
 }
-.green {
-	color: @dark;
-	background-color: @green;
-	> h1, > h2, > h3, > p, > i, > a {
-		color: @dark;
-	}
-	a {
-		border-bottom-color: @light;
-	}
+li:nth-of-type(1n) > a {
+	color: @blue;
 }
-.blue {
-	color: @light;
+li:nth-of-type(2n) > a {
+	color: @green;
+}
+li:nth-of-type(3n) > a {
+	color: @orange;
+}
+li:nth-of-type(4n) > a {
+	color: @pink;
+}
+li:nth-of-type(5n) > a {
+	color: @purple;
+}
+li:nth-of-type(6n) > a {
+	color: @lime;
+}
+
+.blue.fc {
+	color: @blue;
+}
+.orange.fc {
+	color: @orange;
+}
+.green.fc {
+	color: @green;
+}
+.pink.fc {
+	color: @pink;
+}
+.purple.fc {
+	color: @purple;
+}
+.lime.fc {
+	color: @lime;
+}
+
+.blue.bc {
 	background-color: @blue;
-	> h1, > h2, > h3, > p, > i, > a {
-		color: @light;
+	h1, h2, h3, p {
+		color: @white;
 	}
-	a {
-		border-bottom-color: @light;
+	a > i {
+		color: @white;
+	}
+	.box {
+		color: @white;
+		background-color: @black;
+	}
+	.arrow:after {
+		border-color: @black;
 	}
 }
-.black {
-	color: @light;
-	background-color: @dark;
-	> h1, > h2, > h3, > p, > i, > a {
-		color: @light;
+.white.bc {
+	background-color: @white;
+	a > i {
+		color: @black;
 	}
-	a {
-		border-bottom-color: @light;
+	.box {
+		background-color: @black;
+		h1, h2, h3, p, li {
+			color: @white;
+		}
+	}
+	.arrow:after {
+		border-color: @black;
+	}
+}
+.black.bc {
+	background-color: @black;
+	a > i {
+		color: @white;
+	}
+	.box {
+		background-color: @white;
+		h1, h2, h3, p, li {
+			color: @black;
+		}
+	}
+	.arrow:after {
+		border-color: @white;
 	}
 }
 
-// themes
-.light {
-	background-color: @light;
-	.box {
-		background-color: @dark;
-		h1, h2, h3 {
-			color: @light;
-		}
-	}
-	.arrow:after {
-		border-color: @dark;
-	}
+// shapes
+.shapes .blue.fl {
+	fill: @blue;
 }
-.dark {
-	background-color: @dark;
-	.box {
-		background-color: @light;
-		h1, h2, h3 {
-			color: @dark;
-		}
-	}
-	.arrow:after {
-		border-color: @light;
-	}
+.shapes .orange.fl {
+	fill: @orange;
+}
+.shapes .green.fl {
+	fill: @green;
+}
+.shapes .pink.fl {
+	fill: @pink;
+}
+.shapes .purple.fl {
+	fill: @purple;
+}
+.black.bc .shapes .dynamic.fl {
+	fill: @white;
+}
+.white.bc .shapes .dynamic.fl {
+	fill: @black;
 }
 
 // animations
@@ -302,7 +325,7 @@ h3 {
     }
 }
 
-// mobile
+// max mobile
 @media screen and (max-width: 1200px) {
 	h1 {
 		font-size: 2rem;
@@ -311,25 +334,25 @@ h3 {
 		font-size: 1.9rem;
 	}
 }
-@media screen and (max-width: 900px) {
+// @media screen and (max-width: 900px) {
+// }
+@media screen and (max-width: 600px) {
 	h1 {
-		font-size: 1.9rem;
+		font-size: 1.6rem;
 	}
 	h2 {
 		font-size: 1.6rem;
 	}
-}
-@media screen and (max-width: 600px) {
+	.arrow {
+		display: block;
+	}
+	.box {
+		padding: 0.9rem;
+	}
 	.art {
 		justify-content: center;
 		.box {
 			align-self: center;
 		}
-	}
-	h1 {
-		font-size: 1.6rem;
-	}
-	h2 {
-		font-size: 1.3rem;
 	}
 }

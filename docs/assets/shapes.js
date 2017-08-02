@@ -1,4 +1,4 @@
-(function(window) {
+(function (window) {
 
 	function Shapes (options) {
 		this.done = false;

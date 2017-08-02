@@ -1,43 +1,69 @@
-(function(window) {
+(function (window) {
 
 	function Viewify (options) {
+		this.up = 1;
+		this.down = -1;
 		this.data = options.data;
 		this.listener = options.listener;
-		this.offset = options.offset || 0;
 		this.elements = options.elements || [];
-		this.visible = options.visible || 0.4;
-
-		this.length = this.elements.length;
+		this.endPercent = options.endPercent || 0.6;
+		this.startPercent = options.startPercent || 0.4;
+		this.container = options.container || document.body;
 	}
+
+	Viewify.prototype.dev = function () {
+		this.changePointElement = document.createElement('div');
+
+		this.changePointElement.setAttribute('style', `
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 3px;
+			z-index: 10000;
+			background: red;
+			position: absolute;
+		`);
+
+		this.container.appendChild(this.changePointElement);
+	};
 
 	Viewify.prototype.round = function (value, decimals) {
 		return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
 	};
 
-	Viewify.prototype.scroll = function (listener) {
-		var position = window.scrollY;
-		var bodyHeight = document.body.offsetHeight;
+	Viewify.prototype.scroll = function () {
+		var element, start, height, stop;
 
-		this.elements.forEach(function (element, index) {
-			var start = element.offsetTop - this.offset;
-			start = start > 0 ? start : 0;
+		var percent = window.scrollY <= this.position ? this.startPercent : this.endPercent;
+		var position = window.scrollY + (window.innerHeight * percent);
 
-			var height = element.offsetHeight - this.offset;
+		if (this.changePointElement) {
+			this.changePointElement.style.top = position + 'px';
+		}
 
-			var stop = start+height;
-			stop = stop > bodyHeight ? bodyHeight : stop;
+		for (var i = 0, l = this.elements.length; i < l; i++) {
+			element = this.elements[i];
 
-			if (start <= position && position <= stop) {
-				if (listener) {
-					listener(element, index, position);
-				}
+			start = element.offsetTop;
+			height = element.offsetHeight;
+			stop = start + height;
+
+			if (i === l-1) {
+				stop = this.container.offsetHeight;
 			}
-		}, this);
 
+			this.position = window.scrollY;
+
+			if (position >= start && position <= stop && this.current !== i) {
+				this.current = i;
+				return this.listener(element, i, position);
+			}
+		}
+
+		this.position = window.scrollY;
 	};
 
 	Viewify.prototype.listen = function (listener) {
-		listener = listener || this.listener;
 
 		if (this.animation) {
 			window.cancelAnimationFrame(this.animation);
@@ -47,7 +73,8 @@
 			window.removeEventListener(this.event);
 		}
 
-		this.animation = window.requestAnimationFrame.bind(null, this.scroll.bind(this, listener));
+		this.listener = this.listener || listener;
+		this.animation = window.requestAnimationFrame.bind(null, this.scroll.bind(this));
 		this.event = window.addEventListener('scroll', this.animation);
 	};
 

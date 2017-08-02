@@ -2,12 +2,15 @@
   margin: 0;
   padding: 0;
   max-width: 100%;
-  font-size: 16px;
+  font-size: 14px;
   box-sizing: border-box;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-family: 'Roboto Mono', monospace, sans-serif;
-  transition: all 300ms ease;
+  transition: fill 300ms ease,
+		color 300ms ease,
+		opacity 300ms ease,
+		background 300ms ease;
 }
 footer {
   display: flex;
@@ -18,7 +21,7 @@ a {
   border-radius: 1px;
   display: inline-block;
   text-decoration: none;
-  border-bottom: solid 1px transparent;
+  border-bottom: solid 1px currentColor;
 }
 p {
   padding: 1rem;
@@ -27,7 +30,7 @@ p {
 ul {
   margin: 0.5rem;
   padding: 0.5rem;
-  list-style: circle inside;
+  list-style: none;
 }
 li {
   padding: 1rem;
@@ -68,7 +71,7 @@ h3 {
   box-shadow: 0 6px 6px rgba(34, 34, 34, 0.3);
 }
 .fa {
-  font-size: 3rem;
+  font-size: 2.3rem;
 }
 .row {
   flex-direction: row;
@@ -91,16 +94,21 @@ h3 {
 .middle {
   justify-content: center;
 }
+.wrap {
+  display: flex;
+  max-width: 900px;
+}
 .fill {
   flex: 1;
   width: 100vw;
-  height: 100vh;
   display: flex;
+  min-height: 100vh;
 }
 .box {
   padding: 1rem;
-  margin: 0.5rem;
   display: flex;
+  margin: 0.5rem;
+  max-width: 900px;
   box-shadow: 0 3px 9px rgba(34, 34, 34, 0.3);
 }
 .box h1,
@@ -114,11 +122,39 @@ h3 {
   height: 100%;
   position: fixed;
 }
+.arrow {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3rem;
+  bottom: 18px;
+  border: none;
+  display: none;
+  cursor: pointer;
+  position: absolute;
+}
+.arrow:hover {
+  border: none;
+}
+.arrow:after {
+  content: '';
+  margin: auto;
+  border: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: block;
+  border-top: solid 1px transparent;
+  border-right: solid 1px transparent;
+  animation-name: down;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  transform: translateY(0) rotate(135deg);
+}
 .art {
   padding: 1rem;
 }
 .about {
-  box-shadow: 0 -3px 9px rgba(34, 34, 34, 0.3);
+  padding: 1rem;
 }
 .media {
   flex: 1 0 auto;
@@ -129,93 +165,122 @@ h3 {
 .media > a {
   padding: 0.5rem;
 }
-.orange {
-  color: #222;
-  background-color: #f92;
+li i {
+  color: #999;
 }
-.orange > h1,
-.orange > h2,
-.orange > h3,
-.orange > p,
-.orange > i,
-.orange > a {
-  color: #222;
+li:nth-of-type(1n) > a {
+  color: #29f;
 }
-.orange a {
-  border-bottom-color: #fff;
+li:nth-of-type(2n) > a {
+  color: #2f9;
 }
-.green {
-  color: #222;
-  background-color: #2f9;
+li:nth-of-type(3n) > a {
+  color: #f92;
 }
-.green > h1,
-.green > h2,
-.green > h3,
-.green > p,
-.green > i,
-.green > a {
-  color: #222;
+li:nth-of-type(4n) > a {
+  color: #f29;
 }
-.green a {
-  border-bottom-color: #fff;
+li:nth-of-type(5n) > a {
+  color: #92f;
 }
-.blue {
-  color: #fff;
+li:nth-of-type(6n) > a {
+  color: #9f2;
+}
+.blue.fc {
+  color: #29f;
+}
+.orange.fc {
+  color: #f92;
+}
+.green.fc {
+  color: #2f9;
+}
+.pink.fc {
+  color: #f29;
+}
+.purple.fc {
+  color: #92f;
+}
+.lime.fc {
+  color: #9f2;
+}
+.blue.bc {
   background-color: #29f;
 }
-.blue > h1,
-.blue > h2,
-.blue > h3,
-.blue > p,
-.blue > i,
-.blue > a {
+.blue.bc h1,
+.blue.bc h2,
+.blue.bc h3,
+.blue.bc p {
   color: #fff;
 }
-.blue a {
-  border-bottom-color: #fff;
+.blue.bc a > i {
+  color: #fff;
 }
-.black {
+.blue.bc .box {
   color: #fff;
   background-color: #222;
 }
-.black > h1,
-.black > h2,
-.black > h3,
-.black > p,
-.black > i,
-.black > a {
-  color: #fff;
-}
-.black a {
-  border-bottom-color: #fff;
-}
-.light {
-  background-color: #fff;
-}
-.light .box {
-  background-color: #222;
-}
-.light .box h1,
-.light .box h2,
-.light .box h3 {
-  color: #fff;
-}
-.light .arrow:after {
+.blue.bc .arrow:after {
   border-color: #222;
 }
-.dark {
-  background-color: #222;
-}
-.dark .box {
+.white.bc {
   background-color: #fff;
 }
-.dark .box h1,
-.dark .box h2,
-.dark .box h3 {
+.white.bc a > i {
   color: #222;
 }
-.dark .arrow:after {
+.white.bc .box {
+  background-color: #222;
+}
+.white.bc .box h1,
+.white.bc .box h2,
+.white.bc .box h3,
+.white.bc .box p,
+.white.bc .box li {
+  color: #fff;
+}
+.white.bc .arrow:after {
+  border-color: #222;
+}
+.black.bc {
+  background-color: #222;
+}
+.black.bc a > i {
+  color: #fff;
+}
+.black.bc .box {
+  background-color: #fff;
+}
+.black.bc .box h1,
+.black.bc .box h2,
+.black.bc .box h3,
+.black.bc .box p,
+.black.bc .box li {
+  color: #222;
+}
+.black.bc .arrow:after {
   border-color: #fff;
+}
+.shapes .blue.fl {
+  fill: #29f;
+}
+.shapes .orange.fl {
+  fill: #f92;
+}
+.shapes .green.fl {
+  fill: #2f9;
+}
+.shapes .pink.fl {
+  fill: #f29;
+}
+.shapes .purple.fl {
+  fill: #92f;
+}
+.black.bc .shapes .dynamic.fl {
+  fill: #fff;
+}
+.white.bc .shapes .dynamic.fl {
+  fill: #222;
 }
 @keyframes down {
   0% {
@@ -236,25 +301,23 @@ h3 {
     font-size: 1.9rem;
   }
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 600px) {
   h1 {
-    font-size: 1.9rem;
+    font-size: 1.6rem;
   }
   h2 {
     font-size: 1.6rem;
   }
-}
-@media screen and (max-width: 600px) {
+  .arrow {
+    display: block;
+  }
+  .box {
+    padding: 0.9rem;
+  }
   .art {
     justify-content: center;
   }
   .art .box {
     align-self: center;
-  }
-  h1 {
-    font-size: 1.6rem;
-  }
-  h2 {
-    font-size: 1.3rem;
   }
 }
