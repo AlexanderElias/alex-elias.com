@@ -1,83 +1,83 @@
+var viewify = new Viewify({
+	offset: 500,
+	elements: [
+		document.querySelector('.art.zero'),
+		document.querySelector('.art.one'),
+		document.querySelector('.about'),
+	]
+});
 
-// var menu = document.querySelector('.menu');
-//
-// if (menu) {
-// 	var path = window.location.origin + window.location.pathname;
-// 	for (var i = 0; i < menu.children.length; i++) {
-// 		if (menu.children[i].href === path) {
-// 			menu.children[i].classList.add('active');
-// 		} else {
-// 			menu.children[i].classList.remove('active');
-// 		}
-// 	}
-// }
-
-// fonts
-var fonts = document.createElement('link');
-fonts.rel = 'stylesheet';
-fonts.href = '/assets/font-roboto-mono.min.css';
-document.head.insertBefore(fonts, document.head.querySelector('link'));
-
-// icons
-var icons = document.createElement('link');
-icons.rel = 'stylesheet';
-icons.href = '/assets/font-awesome.min.css';
-document.head.insertBefore(icons, document.head.querySelector('link'));
-
-// fill
-var sStyle = document.createTextNode('.winhi { min-height: ' + window.innerHeight + 'px; }');
-var eStyle = document.createElement('style');
-eStyle.appendChild(sStyle);
-document.head.appendChild(eStyle);
-
-// scroll
-function scroll (x, y, d) {
-	x = x || 0;
-	y = y || 0;
-	d = d || 21;
-
-	if (y > window.scrollY || x > window.scrollX) {
-		window.scrollBy(
-			x > 0 ? d : 0,
-			y > 0 ? d : 0
-		);
-		window.requestAnimationFrame(scroll.bind(null, x, y, d));
+viewify.listen(function (element, index) {
+	if (index === 0) {
+		document.body.className = 'light';
+		document.head.querySelector('[name="theme-color"]').content = '#222';
+	} else if (index === 1) {
+		document.body.className = 'dark';
+		document.head.querySelector('[name="theme-color"]').content = '#fff';
+	} else if (index === 2) {
+		console.log('other');
 	}
+});
+
+var ANIMATE;
+var BLACK = '#222';
+var BLUE = '#29f';
+var GREEN = '#2f9';
+var ORANGE = '#f92';
+var PINK = '#f29';
+var PURPLE = '#92f';
+var STYLE = document.createElement('style');
+var CONTAINER = document.querySelector('.shapes');
+var SVG = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+var TEXT = document.createTextNode('.shapes svg { width: 100%; height: 100%; } .shapes * { transition: none; }');
+
+STYLE.appendChild(TEXT);
+CONTAINER.appendChild(STYLE);
+CONTAINER.appendChild(SVG);
+
+SVG.setAttribute('viewbox', '0 0 100 100');
+SVG.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+SVG.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink');
+
+function render (shape) {
+	shape.step();
+	shape.render();
+
+	if (!shape.done && ANIMATE) {
+		window.requestAnimationFrame(function () {
+			render(shape);
+		});
+	}
+
 }
 
-var clickElement = document.querySelector('.arrow');
-var scrollElement = document.querySelector('main > div:nth-child(2)');
-
-if (scrollElement && clickElement) {
-	clickElement.addEventListener('click', function () {
-		scroll(0, scrollElement.offsetTop);
+function start () {
+	ANIMATE = true;
+	[BLACK, PURPLE, PINK, GREEN, ORANGE, BLUE].forEach(function (color) {
+		window.requestAnimationFrame(function () {
+			render(new Shapes({
+				svg: SVG,
+				random: true,
+				infinite: true,
+				atts: { fill: color }
+			}));
+		});
 	});
 }
 
-/*
-
-	index
-
-*/
-if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
-	var options = {
-		offset: 500,
-		elements: [
-			document.querySelector('.art.zero'),
-			document.querySelector('.art.one'),
-			document.querySelector('.about'),
-		]
-	};
-
-	var viewify = new Viewify(options);
-
-	viewify.listen(function (element, index) {
-		if (index === 0) {
-			document.body.classList.add('light');
-			document.body.classList.remove('dark');
-		} else {
-			document.body.classList.add('dark');
-			document.body.classList.remove('light');
-		}
-	});
+function stop () {
+	ANIMATE = false;
+	SVG.innerHTML = '';
 }
+
+start();
+
+document.querySelectorAll('.art')[0].addEventListener('click', function () {
+	stop();
+	setTimeout(start, 500);
+});
+
+document.querySelectorAll('.art')[1].addEventListener('click', function () {
+	stop();
+	setTimeout(start, 500);
+});

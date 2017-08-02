@@ -1,4 +1,4 @@
-window.Viewify = (function(window) {
+(function(window) {
 
 	function Viewify (options) {
 		this.data = options.data;
@@ -51,6 +51,6 @@ window.Viewify = (function(window) {
 		this.event = window.addEventListener('scroll', this.animation);
 	};
 
-	return Viewify;
+	return window.Viewify = Viewify;
 
 }(this));
