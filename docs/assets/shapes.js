@@ -157,7 +157,7 @@ function animate (shapes) {
 function resize () {
 	CONTEXT.canvas.width = CONTAINER.clientWidth;
 	CONTEXT.canvas.height = CONTAINER.clientHeight;
-	CONTEXT.globalAlpha = 0.9;
+	// CONTEXT.globalAlpha = 0.9;
 }
 
 function start () {
@@ -168,7 +168,7 @@ function start () {
 		return new RandomShape({
 			paths: 2,
 			fill: true,
-			infinite: true,
+			// infinite: true,
 			context: CONTEXT,
 			opts: {
 				fillStyle: color,
@@ -191,7 +191,6 @@ function start () {
 }
 
 function stop () {
-	console.log(ID_ANIMATION);
 	window.cancelAnimationFrame(ID_ANIMATION);
 	RUN_ANIMATION = false;
 }
@@ -219,7 +218,11 @@ function restart () {
 // 	start();
 // });
 
-CONTAINER.addEventListener('click', function () {
+document.querySelectorAll('.art')[0].addEventListener('click', function () {
+	restart();
+});
+
+document.querySelectorAll('.art')[1].addEventListener('click', function () {
 	restart();
 });
 

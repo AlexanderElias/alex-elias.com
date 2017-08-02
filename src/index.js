@@ -53,3 +53,31 @@ if (scrollElement && clickElement) {
 		scroll(0, scrollElement.offsetTop);
 	});
 }
+
+/*
+
+	index
+
+*/
+if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+	var options = {
+		offset: 500,
+		elements: [
+			document.querySelector('.art.zero'),
+			document.querySelector('.art.one'),
+			document.querySelector('.about'),
+		]
+	};
+
+	var viewify = new Viewify(options);
+
+	viewify.listen(function (element, index) {
+		if (index === 0) {
+			document.body.classList.add('light');
+			document.body.classList.remove('dark');
+		} else {
+			document.body.classList.add('dark');
+			document.body.classList.remove('light');
+		}
+	});
+}
