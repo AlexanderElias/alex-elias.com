@@ -9,13 +9,12 @@
 		'pink fl',
 		'purple fl',
 	];
+
 	var ANIMATE;
 	var ANIMATION;
 	var CONTAINER = document.querySelector('.shapes');
 	var SVG = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 
-	SVG.setAttribute('width', '100%');
-	SVG.setAttribute('height', '100%');
 	SVG.setAttribute('viewbox', '0 0 100 100');
 	SVG.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
 	SVG.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink');
@@ -85,6 +84,7 @@
 		viewify.listen(function (element, index) {
 			if (index === 0) {
 				theme.content = '#222';
+				shape.style.opacity = '1';
 				document.body.className = 'white bc';
 			} else if (index === 1) {
 				theme.content = '#fff';
@@ -97,11 +97,13 @@
 				}
 
 			} else if (index === 2) {
-				theme.content = '#29f';
+				theme.content = '#222';
 				shape.style.opacity = '0';
-				document.body.className = 'blue bc';
+				document.body.className = 'white bc';
 			}
 		});
+
+
 
 	});
 

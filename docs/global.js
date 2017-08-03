@@ -12,16 +12,15 @@
 // 	}
 // }
 
+var transition = document.createElement('link');
+transition.rel = 'stylesheet';
+transition.href = '/assets/transition.css';
+document.head.appendChild(transition);
+
 var fonts = document.createElement('link');
 fonts.rel = 'stylesheet';
 fonts.href = '/assets/fonts/index.css';
-document.head.insertBefore(fonts, document.head.querySelector('link'));
-
-// fill
-// var sStyle = document.createTextNode('.max { max-height: ' + window.innerHeight + 'px; }');
-// var eStyle = document.createElement('style');
-// eStyle.appendChild(sStyle);
-// document.head.appendChild(eStyle);
+document.head.appendChild(fonts);
 
 // scroll
 // function scroll (x, y, d) {

@@ -31,12 +31,6 @@
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	font-family: 'Roboto Mono', monospace, sans-serif;
-	transition:
-		fill 300ms ease,
-		color 300ms ease,
-		opacity 300ms ease,
-		background 300ms ease;
-
 }
 footer {
 	display: flex;
@@ -146,10 +140,15 @@ h3 {
 	}
 }
 .shapes {
+	opacity: 0;
 	z-index: -1;
 	width: 100%;
 	height: 100%;
 	position: fixed;
+	svg {
+		width: 100%;
+		height: 100%;
+	}
 }
 .arrow {
 	left: 0;
