@@ -19,7 +19,7 @@ document.head.appendChild(transition);
 
 var fonts = document.createElement('link');
 fonts.rel = 'stylesheet';
-fonts.href = '/assets/fonts/index.css';
+fonts.href = '/assets/roboto.css';
 document.head.appendChild(fonts);
 
 // scroll
