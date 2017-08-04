@@ -7,7 +7,6 @@
     "doc": "docs"
   },
   "dependencies": {
-    "font-awesome": "^4.7.0"
   },
   "devDependencies": {},
   "scripts": {
@@ -18,7 +17,7 @@
     "type": "git",
     "url": "git+https://github.com/AlexanderElias/alex-elias.com.git"
   },
-  "author": "Alexander Elias",
+  "author": "Alexander Steven Elias",
   "license": "SEE LICENSE IN LICENSE",
   "bugs": {
     "url": "https://github.com/AlexanderElias/alex-elias.com/issues"

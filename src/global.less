@@ -1,71 +1,49 @@
 @black: #222;
-@white: #fff;
 @blue: #29f;
 @green: #2f9;
 @orange: #f92;
 @pink: #f29;
 @purple: #92f;
 @lime: #9f2;
+@white: #fff;
 @gray: #999;
 @black-transparent: rgba(34, 34, 34, 0.3);
 @shadow: 0 3px 9px @black-transparent;
-
-// @black-pattern: linear-gradient(
-// 	-135deg, transparent 20%, rgba(0,0,0,0.03) 20%, rgba(0,0,0,0.03) 30%, transparent 30%, transparent 70%, rgba(0,0,0,0.03) 70%, rgba(0,0,0,0.03) 80%,
-// 	transparent 80%), linear-gradient(135deg, transparent 20%, rgba(0,0,0,0.03) 20%, rgba(0,0,0,0.03) 30%, rgba(0,0,0,0.03) 30%, rgba(0,0,0,0.03) 40%,
-// 	transparent 40%, transparent 70%, rgba(0,0,0,0.03) 70%, rgba(0,0,0,0.03) 80%, rgba(0,0,0,0.03) 80%, rgba(0,0,0,0.03) 90%, transparent 90%
-// );
-//
-// @white-pattern: linear-gradient(
-// 	-135deg, transparent 20%, rgba(255,255,255,0.03) 20%, rgba(255,255,255,0.03) 30%, transparent 30%, transparent 70%, rgba(255,255,255,0.03) 70%, rgba(255,255,255,0.03) 80%,
-// 	transparent 80%), linear-gradient(135deg, transparent 20%, rgba(255,255,255,0.03) 20%, rgba(255,255,255,0.03) 30%, rgba(255,255,255,0.03) 30%, rgba(255,255,255,0.03) 40%,
-// 	transparent 40%, transparent 70%, rgba(255,255,255,0.03) 70%, rgba(255,255,255,0.03) 80%, rgba(255,255,255,0.03) 80%, rgba(255,255,255,0.03) 90%, transparent 90%
-// );
 
 * {
 	margin: 0;
 	padding: 0;
 	max-width: 100%;
-	font-size: 14px;
+	font-size: 16px;
 	box-sizing: border-box;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	font-family: 'Roboto Mono', monospace, sans-serif;
 }
-footer {
-	display: flex;
-	flex: 1 0 auto;
-}
-a {
-	cursor: pointer;
-	border-radius: 1px;
-	display: inline-block;
-	text-decoration: none;
-	border-bottom: solid 1px currentColor;
-}
 p {
 	padding: 1rem;
 	max-width: 900px;
 }
-ul {
-	margin: 0.5rem;
-	padding: 0.5rem;
-	list-style: none;
-	// list-style: circle outside;
+a {
+	cursor: pointer;
+	border-radius: 1px;
+	font-size: inherit;
+	display: inline-block;
+	text-decoration: none;
+	border-bottom: solid 1px currentColor;
 }
-li {
-	padding: 1rem;
+i {
+	color: inherit;
+	font-weight: 100;
+	font-style: normal;
+	font-size: inherit;
+	text-shadow: inherit;
+	transition: color 0ms;
+	text-transform: inherit;
 }
 h1, h2, h3 {
 	font-weight: 300;
-	small {
-		color: inherit;
-		font-weight: 100;
-		font-size: inherit;
-		text-shadow: inherit;
-		transition: color 0ms;
-		text-transform: inherit;
-	}
+	text-align: center;
 }
 h1 {
 	font-size: 2.9rem;
@@ -75,6 +53,28 @@ h2 {
 }
 h3 {
 	font-size: 2.3rem;
+}
+strong {
+	color: inherit;
+	font-style: normal;
+	font-size: inherit;
+	text-shadow: inherit;
+	transition: color 0ms;
+	text-transform: inherit;
+}
+ul {
+	margin: 0.5rem;
+	padding: 0.5rem;
+	list-style: none;
+	li ul {
+		list-style: disc inside;
+	}
+}
+li {
+	padding: 0.5rem;
+	i {
+		font-size: 0.9rem;
+	}
 }
 
 // globals
@@ -88,10 +88,6 @@ h3 {
 }
 .button:hover {
 	box-shadow: 0 6px 6px @black-transparent;
-}
-
-.fa {
-    font-size: 2.3rem;
 }
 
 // layout
@@ -117,7 +113,6 @@ h3 {
 	justify-content: center;
 }
 .wrap {
-	// flex: 1
 	display: flex;
 	max-width: 900px;
 }
@@ -185,7 +180,6 @@ h3 {
 }
 .about {
 	padding: 1rem;
-	// box-shadow: 0 -3px 9px @black-transparent;
 }
 .media {
 	flex: 1 0 auto;
@@ -198,11 +192,11 @@ h3 {
 }
 
 // colors
-li {
-	i {
-		color: @gray;
-	}
-}
+// li {
+// 	i {
+// 		font-size: 0.9rem;
+// 	}
+// }
 li:nth-of-type(1n) > a {
 	color: @blue;
 }
@@ -263,6 +257,7 @@ li:nth-of-type(6n) > a {
 		color: @black;
 	}
 	.box {
+		color: @white;
 		background-color: @black;
 		h1, h2, h3, p, li {
 			color: @white;
@@ -278,6 +273,7 @@ li:nth-of-type(6n) > a {
 		color: @white;
 	}
 	.box {
+		color: @black;
 		background-color: @white;
 		h1, h2, h3, p, li {
 			color: @black;
@@ -324,7 +320,7 @@ li:nth-of-type(6n) > a {
     }
 }
 
-// max mobile
+// mobile
 @media screen and (max-width: 1200px) {
 	h1 {
 		font-size: 2rem;
@@ -332,9 +328,10 @@ li:nth-of-type(6n) > a {
 	h2 {
 		font-size: 1.9rem;
 	}
+	h3 {
+		font-size: 1.6rem;
+	}
 }
-// @media screen and (max-width: 900px) {
-// }
 @media screen and (max-width: 600px) {
 	h1 {
 		font-size: 1.6rem;
@@ -342,11 +339,14 @@ li:nth-of-type(6n) > a {
 	h2 {
 		font-size: 1.6rem;
 	}
+	h3 {
+		font-size: 1.6rem;
+	}
 	.arrow {
 		display: block;
 	}
 	.box {
-		padding: 0.9rem;
+		padding: 0.9rem 0.6rem;
 	}
 	.art {
 		justify-content: center;
