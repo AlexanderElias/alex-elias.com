@@ -1,26 +1,18 @@
 
-// var menu = document.querySelector('.menu');
-//
-// if (menu) {
-// 	var path = window.location.origin + window.location.pathname;
-// 	for (var i = 0; i < menu.children.length; i++) {
-// 		if (menu.children[i].href === path) {
-// 			menu.children[i].classList.add('active');
-// 		} else {
-// 			menu.children[i].classList.remove('active');
-// 		}
-// 	}
-// }
+var menuLink = document.createElement('link');
+menuLink.rel = 'stylesheet';
+menuLink.href = '/assets/menu.css';
+document.head.appendChild(menuLink);
 
-var transition = document.createElement('link');
-transition.rel = 'stylesheet';
-transition.href = '/assets/transition.css';
-document.head.appendChild(transition);
+var robotoLink = document.createElement('link');
+robotoLink.rel = 'stylesheet';
+robotoLink.href = '/assets/roboto.css';
+document.head.appendChild(robotoLink);
 
-var fonts = document.createElement('link');
-fonts.rel = 'stylesheet';
-fonts.href = '/assets/roboto.css';
-document.head.appendChild(fonts);
+var transitionLink = document.createElement('link');
+transitionLink.rel = 'stylesheet';
+transitionLink.href = '/assets/transition.css';
+document.head.appendChild(transitionLink);
 
 // scroll
 // function scroll (x, y, d) {

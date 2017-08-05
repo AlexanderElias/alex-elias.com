@@ -22,7 +22,7 @@
 	<meta name="keywords" content="Coder, Designer, Developer, Programmer, Coding, Designing, Programming, Web, Development, Front-end, Back-end, Full-stack, Node.js, JavaScript, Rust, Browser">
 	<meta name="author" content="Alexander Steven Elias">
 
-	<title>Alex Elias</title>
+	<title>Contact | Alex Elias</title>
 
 	<link rel="preload" href="/global.css" as="style">
 	<link rel="stylesheet" href="/global.css">
@@ -33,22 +33,124 @@
 	<link rel="preload" href="/assets/viewify.js" as="script">
 	<script src="/assets/viewify.js" defer></script>
 
+	<link rel="preload" href="/assets/menu.js" as="script">
+	<script src="/assets/menu.js" defer></script>
+
 	<link rel="preload" href="/global.js" as="script">
 	<script src="/global.js" defer></script>
 </head>
 <body class="white bc">
 
-	<!-- <div class="menu">
-		<a href="/">Root</a>
-		<a href="/projects">Projects</a>
-		<a href="/contact">Contact</a>
-	</div> -->
+	<header>
+		<div class="menu">
+			<div class="menu-icon"></div>
+			<div class="menu-list">
+				<a href="/">Root</a>
+				<a href="/resume">Resume</a>
+				<a href="/contact">Contact</a>
+			</div>
+		</div>
+	</header>
 
-	
-<div class="fill">
-	<h1>Coming Soon</h1>
+	<main>
+		
+
+
+<style>
+	.response {
+		color: #2f9;
+		padding: 1rem;
+	}
+	.information, .message {
+		padding: 3rem;
+	}
+	.information > div > h2, .message  > div > h2 {
+		padding: 1rem 0;
+	}
+	.information > div > div, .message form {
+		padding: 0.5rem;
+	}
+</style>
+
+<div class="column middle">
+	<div class="title center">
+		<h1>contact</h1>
+	</div>
 </div>
 
+<div class="column middle">
+	<div class="column center">
+
+		<div class="information column">
+			<div class="start">
+				<h2>information</h2>
+			</div>
+			<div class="column wrap">
+				<div class="start">Phone: <a href="tel:15208707847">1-520-870-7847</a></div>
+				<div class="end">Email: <a href="mailto:alex.steven.elias@gmail.com">alex.steven.elias@gmail.com</a></div>
+			</div>
+			<div class="column wrap">
+				<div class="end">Npmjs: <a href="https://www.npmjs.com/~alexanderelias"  target="_blank" rel="noopener">npmjs.com/~alexanderelias</a></div>
+				<div class="start">Github: <a href="https://github.com/AlexanderElias/"  target="_blank" rel="noopener">github.com/AlexanderElias</a></div>
+			</div>
+			<div class="column wrap">
+				<div class="start">Facebook: <a href="https://www.facebook.com/PigeonJeorge" target="_blank" rel="noopener">facebook.com/PigeonJeorge</a></div>
+				<div class="end">Linkedin: <a href="https://www.linkedin.com/in/alexander-elias/"  target="_blank" rel="noopener">linkedin.com/in/alexander-elias</a></div>
+			</div>
+		</div>
+
+		<div class="message column">
+			<div class="start">
+				<h2>message</h2>
+			</div>
+			<form class="column center">
+				<div class="row wrap center">
+					<div class="response"></div>
+				</div>
+				<div class="row wrap center">
+					<input type="text" name="first_name" placeholder="First Name" required>
+					<input type="text" name="last_name" placeholder="Last Name" required>
+				</div>
+				<div class="row wrap center">
+					<input type="email" name="email_address" placeholder="Email Address" required>
+					<input type="tel" name="phone_number" placeholder="Phone Number">
+				</div>
+				<div class="column">
+					<textarea class="center" name="message" placeholder="Message"></textarea>
+				</div>
+				<div class="column">
+					<input class="button" type="submit" value="submit"/>
+				</div>
+			</form>
+		</div>
+
+	</div>
+</div>
+
+<script src="/assets/astatine.min.js"></script>
+<script>
+	Astatine.setup.spinner.colorTop = '#fff';
+	Astatine.setup.spinner.colorBottom = '#222';
+	Astatine.submit({
+		query: 'form',
+		method: 'post',
+		responseType: 'json',
+		action: 'https://www.enformed.io/zpn17s0',
+		prepare: function (data, resolve) {
+			data['*formname'] = 'alex-elias.com';
+			data['*default_email'] = 'alex.steven.elias@gmail.com';
+			return resolve(data);
+		},
+		complete: function (error, success) {
+			if (error) console.log(error);
+			else {
+				document.querySelector('.response').innerText = 'Message Sent';
+			}
+		}
+	});
+</script>
+
+	</main>
 
 </body>
 </html>
