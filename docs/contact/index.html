@@ -39,7 +39,7 @@
 	<link rel="preload" href="/global.js" as="script">
 	<script src="/global.js" defer></script>
 </head>
-<body class="white bc">
+<body class="theme-white">
 
 	<header>
 		<div class="menu">
@@ -61,20 +61,11 @@
 		color: #2f9;
 		padding: 1rem;
 	}
-	.information, .message {
-		padding: 3rem;
-	}
-	.information > div > h2, .message  > div > h2 {
-		padding: 1rem 0;
-	}
-	.information > div > div, .message form {
-		padding: 0.5rem;
-	}
 </style>
 
-<div class="column middle">
-	<div class="title center">
-		<h1>contact</h1>
+<div class="title column">
+	<div>
+		<h1>Contact</h1>
 	</div>
 </div>
 
@@ -82,44 +73,47 @@
 	<div class="column center">
 
 		<div class="information column">
-			<div class="start">
-				<h2>information</h2>
+			<h2>Information</h2>
+			<div class="column wrap">
+				<div class="start">
+					<p>Hours: 9-6</p>
+				</div>
+				<div class="start">
+					<p>Days: Sunday-Friday</p>
+				</div>
 			</div>
 			<div class="column wrap">
-				<div class="start">Phone: <a href="tel:15208707847">1-520-870-7847</a></div>
-				<div class="end">Email: <a href="mailto:alex.steven.elias@gmail.com">alex.steven.elias@gmail.com</a></div>
+				<div class="start">
+					<p>Phone: <a href="tel:15208707847">1-520-870-7847</a></p>
+				</div>
+				<div class="end">
+					<p>Email: <a href="mailto:alex.steven.elias@gmail.com">alex.steven.elias@gmail.com</a></p>
+				</div>
 			</div>
-			<div class="column wrap">
+			<!-- <div class="column wrap">
 				<div class="end">Npmjs: <a href="https://www.npmjs.com/~alexanderelias"  target="_blank" rel="noopener">npmjs.com/~alexanderelias</a></div>
 				<div class="start">Github: <a href="https://github.com/AlexanderElias/"  target="_blank" rel="noopener">github.com/AlexanderElias</a></div>
 			</div>
 			<div class="column wrap">
 				<div class="start">Facebook: <a href="https://www.facebook.com/PigeonJeorge" target="_blank" rel="noopener">facebook.com/PigeonJeorge</a></div>
 				<div class="end">Linkedin: <a href="https://www.linkedin.com/in/alexander-elias/"  target="_blank" rel="noopener">linkedin.com/in/alexander-elias</a></div>
-			</div>
+			</div> -->
 		</div>
 
 		<div class="message column">
-			<div class="start">
-				<h2>message</h2>
-			</div>
+			<h2>Message</h2>
 			<form class="column center">
 				<div class="row wrap center">
-					<div class="response"></div>
+					<input class="lime hbc" type="text" name="first_name" placeholder="First Name" required>
+					<input class="purple hbc" type="text" name="last_name" placeholder="Last Name" required>
 				</div>
 				<div class="row wrap center">
-					<input type="text" name="first_name" placeholder="First Name" required>
-					<input type="text" name="last_name" placeholder="Last Name" required>
-				</div>
-				<div class="row wrap center">
-					<input type="email" name="email_address" placeholder="Email Address" required>
-					<input type="tel" name="phone_number" placeholder="Phone Number">
+					<input class="pink hbc" type="email" name="email_address" placeholder="Email Address" required>
+					<input class="green hbc" type="tel" name="phone_number" placeholder="Phone Number">
 				</div>
 				<div class="column">
-					<textarea class="center" name="message" placeholder="Message"></textarea>
-				</div>
-				<div class="column">
-					<input class="button" type="submit" value="submit"/>
+					<textarea class="orange hbc" class="center" name="message" placeholder="Message"></textarea>
+					<input class="button center" type="submit" value="submit"/>
 				</div>
 			</form>
 		</div>
@@ -142,9 +136,14 @@
 			return resolve(data);
 		},
 		complete: function (error, success) {
-			if (error) console.log(error);
-			else {
-				document.querySelector('.response').innerText = 'Message Sent';
+			var submit = document.querySelector('[type="submit"]');
+			submit.disabled = true;
+
+			if (error) {
+				console.log(error);
+				submit.value = 'Error: Please call or try again';
+			} else {
+				submit.value = 'Success: Message was sent';
 			}
 		}
 	});

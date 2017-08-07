@@ -72,6 +72,8 @@
 			);
 		}
 
+		args.push('Z');
+
 		return args;
 	};
 

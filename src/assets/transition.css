@@ -3,6 +3,7 @@
 	transition:
 		fill 300ms ease,
 		color 300ms ease,
+		border 300ms ease,
 		opacity 300ms ease,
 		transform 300ms ease,
 		background 300ms ease;

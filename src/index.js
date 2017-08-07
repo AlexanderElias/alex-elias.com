@@ -3,11 +3,11 @@
 
 	var CLASS_NAMES = [
 		'dynamic fl',
-		'blue fl',
-		'orange fl',
-		'green fl',
-		'pink fl',
 		'purple fl',
+		'pink fl',
+		'green fl',
+		'orange fl',
+		'blue fl'
 	];
 
 	var ANIMATE;
@@ -39,6 +39,7 @@
 			ANIMATION = window.requestAnimationFrame(function () {
 				render(new Shapes({
 					svg: SVG,
+					close: true,
 					random: true,
 					infinite: true,
 					atts: { class: className }
@@ -85,11 +86,11 @@
 			if (index === 0) {
 				theme.content = '#222';
 				shape.style.opacity = '1';
-				document.body.className = 'white bc';
+				document.body.className = 'theme-white';
 			} else if (index === 1) {
 				theme.content = '#fff';
 				shape.style.opacity = '1';
-				document.body.className = 'black bc';
+				document.body.className = 'theme-black';
 
 				if (isNotDone) {
 					isNotDone = false;
@@ -99,7 +100,7 @@
 			} else if (index === 2) {
 				theme.content = '#222';
 				shape.style.opacity = '0';
-				document.body.className = 'white bc';
+				document.body.className = 'theme-white';
 			}
 		});
 

@@ -1,9 +1,12 @@
 
-var i, l;
+var path, i, l;
 var menu = document.querySelector('.menu');
 var menuIcon = document.querySelector('.menu-icon');
 var menuList = document.querySelector('.menu-list');
-var path = window.location.origin + window.location.pathname;
+
+path = window.location.pathname.replace(/\/$/, '');
+path = path === '' ? '/' : path;
+path = window.location.origin + path;
 
 if (menuIcon) {
 	for (i = 0; i < 3; i++) {
