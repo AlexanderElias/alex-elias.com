@@ -21,16 +21,18 @@ p,
 a,
 h1,
 h2 {
-  color: #333;
+  color: #222;
 }
 p,
 ul {
+  width: 100%;
   margin: 0.3rem;
   padding: 0.3rem;
-  max-width: 900px;
+  max-width: 600px;
+  line-height: 1.9rem;
 }
 a {
-  color: #39e;
+  color: #29f;
   cursor: pointer;
   padding: 0.3rem;
   font-size: inherit;
@@ -63,8 +65,9 @@ h1 {
 h2 {
   margin: 0.3rem;
   padding: 0.3rem;
-  font-size: 2.3rem;
   margin-top: 3rem;
+  font-size: 2.3rem;
+  border-bottom: solid 1px #eee;
 }
 strong {
   color: inherit;
@@ -87,18 +90,19 @@ textarea {
 }
 textarea {
   width: 100%;
+  min-height: 6rem;
   margin: 0.6rem 0;
 }
 input:focus,
 textarea:focus {
   background: #eee;
-  border-color: #39e;
+  border-color: #29f;
 }
 ul {
   list-style: none;
 }
 ul li {
-  padding: 0.5rem;
+  padding: 0.3rem;
 }
 ul li i {
   color: #999;
@@ -115,25 +119,25 @@ form {
 }
 ::selection {
   color: #fff;
-  background-color: #39e;
+  background-color: #29f;
 }
 ::-moz-selection {
   color: #fff;
-  background-color: #39e;
+  background-color: #29f;
 }
 .button {
   border: none;
-  color: #39e;
+  color: #29f;
   cursor: pointer;
   margin: 0.3rem;
   border: solid 1px;
-  border-color: #39e;
+  border-color: #29f;
   padding: 0.6rem 0.9rem;
   text-transform: uppercase;
 }
 .button:hover:enabled {
   color: #fff;
-  background-color: #39e;
+  background-color: #29f;
 }
 .button:disabled,
 .button:disabled:hover {
@@ -142,9 +146,9 @@ form {
   border-color: #999;
 }
 .title {
-  background: #39e;
+  background: #29f;
   margin-bottom: 3rem;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
 }
 .title h1 {
   color: #fff;
@@ -155,10 +159,10 @@ form {
   color: #999;
 }
 .menu .menu-list a:hover {
-  background-color: #39e;
+  background-color: #29f;
 }
 .menu.active .menu-list {
-  box-shadow: -3px 0 3px rgba(0, 0, 0, 0.1);
+  box-shadow: -3px 0 6px rgba(0, 0, 0, 0.3);
 }
 .row {
   display: flex;
@@ -207,7 +211,7 @@ form {
   margin: 0.6rem;
   padding: 0.9rem;
   max-width: 900px;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
 }
 .box h1,
 .box h2,
@@ -236,8 +240,7 @@ form {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 3rem;
-  bottom: 18px;
+  height: 6rem;
   border: none;
   display: none;
   cursor: pointer;
@@ -250,8 +253,8 @@ form {
   content: '';
   margin: auto;
   border: none;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 3rem;
+  height: 3rem;
   display: block;
   border-top: solid 1px transparent;
   border-right: solid 1px transparent;
@@ -265,34 +268,25 @@ form {
   position: relative;
 }
 .about {
-  padding: 1rem;
-}
-.media {
-  flex: 1 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.media > a {
-  padding: 0.5rem;
+  padding: 0.9rem;
 }
 .blue.fc {
-  color: #39e;
+  color: #29f;
 }
 .orange.fc {
-  color: #e93;
+  color: #f92;
 }
 .green.fc {
-  color: #3e9;
+  color: #2f9;
 }
 .pink.fc {
-  color: #e39;
+  color: #f29;
 }
 .purple.fc {
-  color: #93e;
+  color: #92f;
 }
 .lime.fc {
-  color: #9e3;
+  color: #9f2;
 }
 .theme-white {
   background-color: #fff;
@@ -301,17 +295,17 @@ form {
   color: #fff;
 }
 .theme-white .menu .menu-list {
-  background-color: #333;
+  background-color: #222;
 }
 .theme-white .menu .menu-icon > div {
-  background-color: #333;
+  background-color: #222;
 }
 .theme-white .menu.active .menu-icon > div {
   background-color: #fff;
 }
 .theme-white .box {
   color: #fff;
-  background-color: #333;
+  background-color: #222;
 }
 .theme-white .box h1,
 .theme-white .box h2,
@@ -321,13 +315,13 @@ form {
   color: #fff;
 }
 .theme-white .arrow:after {
-  border-color: #333;
+  border-color: #222;
 }
 .theme-black {
-  background-color: #333;
+  background-color: #222;
 }
 .theme-black .menu a {
-  color: #333;
+  color: #222;
 }
 .theme-black .menu .menu-list {
   background-color: #fff;
@@ -336,10 +330,10 @@ form {
   background-color: #fff;
 }
 .theme-black .menu.active .menu-icon > div {
-  background-color: #333;
+  background-color: #222;
 }
 .theme-black .box {
-  color: #333;
+  color: #222;
   background-color: #fff;
 }
 .theme-black .box h1,
@@ -347,44 +341,44 @@ form {
 .theme-black .box h3,
 .theme-black .box p,
 .theme-black .box li {
-  color: #333;
+  color: #222;
 }
 .theme-black .arrow:after {
   border-color: #fff;
 }
 .theme-white .shapes .dynamic.fl {
-  fill: #333;
+  fill: #222;
 }
 .theme-black .shapes .dynamic.fl {
   fill: #fff;
 }
 .shapes .blue.fl {
-  fill: #39e;
+  fill: #29f;
 }
 .shapes .orange.fl {
-  fill: #e93;
+  fill: #f92;
 }
 .shapes .green.fl {
-  fill: #3e9;
+  fill: #2f9;
 }
 .shapes .pink.fl {
-  fill: #e39;
+  fill: #f29;
 }
 .shapes .purple.fl {
-  fill: #93e;
+  fill: #92f;
 }
 .shapes .lime.fl {
-  fill: #9e3;
+  fill: #9f2;
 }
 @keyframes down {
   0% {
-    transform: translateY(0) rotate(135deg);
-  }
-  50% {
     transform: translateY(-1rem) rotate(135deg);
   }
+  50% {
+    transform: translateY(3rem) rotate(135deg);
+  }
   100% {
-    transform: translateY(0) rotate(135deg);
+    transform: translateY(-1rem) rotate(135deg);
   }
 }
 @media screen and (max-width: 1200px) {
@@ -400,9 +394,6 @@ form {
   }
 }
 @media screen and (max-width: 600px) {
-  .box {
-    margin: 0.3rem;
-  }
   .box h1,
   .box h2 {
     font-size: 1.9rem;
@@ -411,7 +402,6 @@ form {
     display: block;
   }
   .art {
-    padding: 0.3rem;
     justify-content: center;
   }
   .art .box {
@@ -419,11 +409,14 @@ form {
   }
 }
 @media screen and (max-width: 500px) {
-  .box {
-    padding: 0.3rem;
-  }
   .box h1,
   .box h2 {
     font-size: 1.6rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  .box h1,
+  .box h2 {
+    font-size: 1.3em;
   }
 }
