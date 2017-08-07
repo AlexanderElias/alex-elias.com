@@ -125,6 +125,18 @@ form {
   color: #fff;
   background-color: #29f;
 }
+::-webkit-input-placeholder {
+  color: #999;
+}
+::-moz-placeholder {
+  color: #999;
+}
+:-ms-input-placeholder {
+  color: #999;
+}
+:-moz-placeholder {
+  color: #999;
+}
 .button {
   border: none;
   color: #29f;
