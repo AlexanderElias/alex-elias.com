@@ -1,10 +1,1 @@
-
-* {
-	transition:
-		fill 300ms ease,
-		color 300ms ease,
-		border 300ms ease,
-		opacity 300ms ease,
-		transform 300ms ease,
-		background 300ms ease;
-}
+*{transition:fill .3s ease,color .3s ease,border .3s ease,opacity .3s ease,transform .3s ease,background .3s ease}

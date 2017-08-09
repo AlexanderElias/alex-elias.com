@@ -14,15 +14,15 @@
 	Viewify.prototype.dev = function () {
 		this.changePointElement = document.createElement('div');
 
-		this.changePointElement.setAttribute('style', `
-			left: 0;
-			top: 0;
-			width: 100%;
-			height: 3px;
-			z-index: 10000;
-			background: red;
-			position: absolute;
-		`);
+		this.changePointElement.setAttribute('style',
+			'left: 0;' +
+			'top: 0;' +
+			'width: 100%;' +
+			'height: 3px;' +
+			'z-index: 10000;' +
+			'background: red;' +
+			'position: absolute;'
+		);
 
 		this.container.appendChild(this.changePointElement);
 	};
