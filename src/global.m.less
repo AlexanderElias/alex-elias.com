@@ -45,10 +45,10 @@ p, a, h1, h2 {
 }
 p, ul {
 	width: 100%;
-	margin: 0.3rem;
-	padding: 0.3rem;
 	max-width: 600px;
 	line-height: 1.9rem;
+	margin: 0.3rem 0.6rem;
+	padding: 0.3rem 0.6rem;
 }
 a {
 	color: @blue;
@@ -73,7 +73,7 @@ i {
 	text-transform: inherit;
 }
 h1, h2 {
-	padding: 0.3rem;
+	padding: 0.3rem 0.6rem;
 	font-weight: 300;
 	text-transform: capitalize;
 }
@@ -82,8 +82,8 @@ h1 {
 	// text-transform: uppercase;
 }
 h2 {
-	margin: 0.3rem;
-	padding: 0.3rem;
+	margin: 0.6rem;
+	padding: 0.6rem;
 	margin-top: 3rem;
 	font-size: 2.3rem;
 	border-bottom: solid 1px @lightGray;
@@ -419,7 +419,7 @@ form {
 		transform: translateY(-1rem) rotate(135deg);
     }
     50% {
-		transform: translateY(3rem) rotate(135deg);
+		transform: translateY(2rem) rotate(135deg);
     }
     100% {
 		transform: translateY(-1rem) rotate(135deg);
@@ -458,6 +458,16 @@ form {
 	}
 }
 @media screen and (max-width: 500px) {
+	.row.sm {
+		flex-direction: column;
+	}
+	ul {
+		li {
+			strong {
+				display: block;
+			}
+		}
+	}
 	.box {
 		h1, h2 {
 			font-size: 1.6rem;
