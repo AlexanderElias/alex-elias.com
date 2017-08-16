@@ -1,6 +1,6 @@
 {
   "name": "alex-elias.com",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "alex-elias.com",
   "main": "index.html",
   "directories": {
@@ -19,7 +19,7 @@
     "url": "git+https://github.com/AlexanderElias/alex-elias.com.git"
   },
   "author": "Alexander Steven Elias",
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/AlexanderElias/alex-elias.com/issues"
   },
