@@ -28,12 +28,16 @@
 	max-width: 100%;
 	font-size: 16px;
 	box-sizing: border-box;
+	font-family: 'Lato', sans-serif;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
-	font-family: 'Lato', sans-serif;
 }
-body {
+html, body {
+	min-width: 100vw;
+	max-width: 100vw;
+	min-height: 100vh;
 	position: relative;
+	overflow-x: hidden;
 }
 header {
 	z-index: 1;
@@ -267,12 +271,12 @@ form {
 }
 .shapes {
 	z-index: -1;
-	width: 100%;
-	height: 100%;
+	width: 100vw;
+	height: 100vh;
 	position: fixed;
 	svg {
-		width: 100%;
-		height: 100%;
+		width: 100vw;
+		height: 100vh;
 	}
 }
 .arrow {
