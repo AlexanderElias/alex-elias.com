@@ -1,13 +1,7 @@
 
-var menuLink = document.createElement('link');
-menuLink.rel = 'stylesheet';
-menuLink.href = '/assets/menu.css';
-document.head.appendChild(menuLink);
-
 var fontLink = document.createElement('link');
 fontLink.rel = 'stylesheet';
 fontLink.href = '/assets/font.css';
-// fontLink.href = 'https://fonts.googleapis.com/css?family=Lato:300,400,700|Roboto+Mono:100,300';
 document.head.appendChild(fontLink);
 
 var transitionLink = document.createElement('link');

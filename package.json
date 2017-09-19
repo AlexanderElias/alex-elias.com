@@ -11,8 +11,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "serve": "muleify serve -w src dist",
-    "build": "rm -r dist/* && rm -r docs/* && muleify pack src dist && muleify pack src docs"
+    "serve": "rm -r dev && muleify serve -wm src dev",
+    "build": "rm -r docs && muleify pack -m src docs"
   },
   "repository": {
     "type": "git",
