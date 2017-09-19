@@ -28,6 +28,9 @@
 		if (this.random) {
 			this.source = this.randomArgs();
 			this.target = this.randomArgs();
+		} else {
+			this.source = options.source;
+			this.target = options.target;
 		}
 	}
 

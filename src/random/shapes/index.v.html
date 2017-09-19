@@ -1,0 +1,62 @@
+
+<div class="shapes"></div>
+
+<script src="/assets/shapes.js" defer></script>
+
+<script>
+(function (window) {
+
+	var ANIMATE;
+	var ANIMATION;
+	var CONTAINER = document.querySelector('.shapes');
+	var SVG = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+
+	SVG.setAttribute('viewbox', '0 0 100 100');
+	SVG.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+	SVG.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink');
+	CONTAINER.appendChild(SVG);
+
+	function render (shape) {
+		shape.step();
+		shape.render();
+
+		if (!shape.done && ANIMATE) {
+			ANIMATION = window.requestAnimationFrame(function () {
+				render(shape);
+			});
+		}
+
+	}
+
+	function start () {
+		ANIMATE = true;
+		ANIMATION = window.requestAnimationFrame(function () {
+			render(new Shapes({
+				svg: SVG,
+				// close: true,
+				// random: true,
+				// infinite: true,
+				atts: { class: className }
+			}));
+		});
+	}
+
+	function stop () {
+		ANIMATE = false;
+		window.cancelAnimationFrame(ANIMATION);
+		while (SVG.lastChild) SVG.removeChild(SVG.lastChild);
+	}
+
+	function reset () {
+		stop();
+		start();
+	}
+
+	// window.addEventListener('load', function () {
+	// 	start();
+	// 	document.querySelectorAll('.art')[0].addEventListener('click', reset);
+	// 	document.querySelectorAll('.art')[1].addEventListener('click', reset);
+	// });
+
+}(this));
+</script>
