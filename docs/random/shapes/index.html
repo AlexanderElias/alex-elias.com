@@ -1,0 +1,67 @@
+<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"><link rel=apple-touch-icon sizes=180x180 href=/favicon/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon/favicon-32x32.png><link rel=icon type=image/png sizes=192x192 href=/favicon/android-chrome-192x192.png><link rel=icon type=image/png sizes=16x16 href=/favicon/favicon-16x16.png><link rel=manifest href=/favicon/manifest.json><link rel=mask-icon href=/favicon/safari-pinned-tab.svg color=#222222><link rel="shortcut icon" href=/favicon/favicon.ico><meta name=apple-mobile-web-app-title content="Alex Elias"><meta name=application-name content="Alex Elias"><meta name=msapplication-TileColor content=#222222><meta name=msapplication-TileImage content=/favicon/mstile-144x144.png><meta name=msapplication-config content=/favicon/browserconfig.xml><meta name=theme-color content=#222222><meta name=author content="Alexander Steven Elias"><meta name=keywords content="Alex, Elias, Coder, Designer, Developer, Programmer, Coding, Designing, Programming, Web, Development, Front-end, Back-end, Full-stack, Node.js, JavaScript, Rust, Browser"><meta name=description content="I am a developer, designer, and entrepreneur born and raised in Tucson, Arizona. I build web sites, web apps, mobile apps, and servers that are scalable, performant, and beautiful. My favorite languages are JavaScript and Rust. My favorite technologies are Node.js and the Browser. I am a big proponent of open-source."><title>Alex Elias</title><link rel=preload href=/assets/menu.js as=script><script src=/assets/menu.js defer></script><link rel=preload href=/assets/menu.css as=style><link rel=stylesheet href=/assets/menu.css><link rel=preload href=/global.css as=style><link rel=stylesheet href=/global.css></head><body class=theme-white><header><div class=menu><div class=menu-icon></div><div class=menu-list><a href=/>Root</a><a href=/resume>Resume</a><a href=/contact>Contact</a></div></div></header><main><div class=shapes></div><script src=/assets/shapes.js defer></script><script>
+(function (window) {
+
+	var ANIMATE;
+	var ANIMATION;
+	var CONTAINER = document.querySelector('.shapes');
+	var SVG = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+
+	SVG.setAttribute('viewbox', '0 0 100 100');
+	SVG.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+	SVG.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink');
+	CONTAINER.appendChild(SVG);
+
+	function render (shape) {
+		shape.step();
+		shape.render();
+
+		if (!shape.done && ANIMATE) {
+			ANIMATION = window.requestAnimationFrame(function () {
+				render(shape);
+			});
+		}
+
+	}
+
+	function start () {
+		ANIMATE = true;
+		ANIMATION = window.requestAnimationFrame(function () {
+			render(new Shapes({
+				svg: SVG,
+				// close: true,
+				// random: true,
+				// infinite: true,
+				atts: { class: className }
+			}));
+		});
+	}
+
+	function stop () {
+		ANIMATE = false;
+		window.cancelAnimationFrame(ANIMATION);
+		while (SVG.lastChild) SVG.removeChild(SVG.lastChild);
+	}
+
+	function reset () {
+		stop();
+		start();
+	}
+
+	// window.addEventListener('load', function () {
+	// 	start();
+	// 	document.querySelectorAll('.art')[0].addEventListener('click', reset);
+	// 	document.querySelectorAll('.art')[1].addEventListener('click', reset);
+	// });
+
+}(this));
+</script></main><script>
+		var fontLink = document.createElement('link');
+		fontLink.rel = 'stylesheet';
+		fontLink.href = '/assets/font.css';
+		document.head.appendChild(fontLink);
+
+		var transitionLink = document.createElement('link');
+		transitionLink.rel = 'stylesheet';
+		transitionLink.href = '/assets/transition.css';
+		document.head.appendChild(transitionLink);
+	</script></body></html>
