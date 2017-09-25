@@ -29,10 +29,9 @@
 			this.source = this.randomArgs();
 			this.target = this.randomArgs();
 		} else {
-			this.source = typeof options.source === 'string'? this.toPath(options.source) : options.source;
-			this.target = typeof options.target === 'string'? this.toPath(options.target) : options.target;
+			this.source = options.source;
+			this.target = options.target;
 		}
-
 	}
 
 	Shapes.prototype.setSource = function (source) {
@@ -83,20 +82,9 @@
 
 	Shapes.prototype.step = function () {
 		var completes = 0;
-		var length = this.target.length;
 
 		if (!this.done) {
-
-			if (this.inited) {
-				this.inited = true;
-				if (this.target.length > this.source.length) {
-					this.source.push.apply(this.source, this.target.slice(this.source.length-1));
-				} else if (this.target.length < this.source.length) {
-					this.source.length = this.target.length;
-				}
-			}
-
-			for (var i = 0, l = l = this.source.length; i < l; i++) {
+			for (var i = 0, l = this.source.length; i < l; i++) {
 				if (typeof this.source[i] === 'string' || this.source[i] === this.target[i]) {
 					completes++;
 
@@ -112,27 +100,6 @@
 				}
 			}
 		}
-	};
-
-	Shapes.prototype.formatPath = function (path) {
-		return path
-		.replace(/([a-z])/ig, ' $1 ')
-		.replace(/(\d)-/g, '$1 -')
-		.replace(/-\./g, '-0.')
-		.replace(/\d+\.\d+(\.\d+)+/g, function  (string) {
-		    var strings = string.split('.');
-		    return strings.slice(0, 2).join('.') + strings.slice(1).join(' 0.');
-		});
-	};
-
-	Shapes.prototype.toPath = function (path) {
-		return this.formatPath(path).split(' ').map(function (p) {
-			if (/\d+/.test(p)) {
-				return parseFloat(p);
-			} else {
-				return p;
-			}
-		});
 	};
 
 	Shapes.prototype.render = function () {
