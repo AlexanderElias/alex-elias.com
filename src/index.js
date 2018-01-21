@@ -1,5 +1,5 @@
-
 (function (window) {
+	'use strict';
 
 	var CLASS_NAMES = [
 		'dynamic fl',
