@@ -1,2 +1,2 @@
-# alex-elias.com
-[alex-elias.com](http://alex-elias.com/)
+# alexelias.io
+[alexelias.io](https://alexelias.io/)
