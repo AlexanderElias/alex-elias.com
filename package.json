@@ -1,27 +1,27 @@
 {
-  "name": "alex-elias.com",
-  "version": "1.0.7",
-  "description": "alex-elias.com",
-  "main": "index.html",
-  "directories": {
-    "doc": "docs"
-  },
-  "dependencies": {
-    "astatine": "^1.2.0"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "serve": "rm -r dev && muleify serve -wm src dev",
-    "build": "rm -r docs && muleify pack -m src docs"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AlexanderElias/alex-elias.com.git"
-  },
-  "author": "Alexander Steven Elias",
-  "license": "UNLICENSED",
-  "bugs": {
-    "url": "https://github.com/AlexanderElias/alex-elias.com/issues"
-  },
-  "homepage": "https://github.com/AlexanderElias/alex-elias.com#readme"
+	"name": "alexelias.io",
+	"version": "1.0.0",
+	"description": "alexelias.io",
+	"main": "index.html",
+	"directories": {
+		"doc": "docs"
+	},
+	"dependencies": {
+		"astatine": "^1.2.0"
+	},
+	"devDependencies": {},
+	"scripts": {
+		"s": "rm -r dev && muleify serve -wm src dev",
+		"b": "rm -r docs && muleify pack -m src docs"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/AlexanderElias/alexelias.io.git"
+	},
+	"author": "Alexander Elias",
+	"license": "SEE LICENSE IN LICENSE",
+	"bugs": {
+		"url": "https://github.com/AlexanderElias/alexelias.io/issues"
+	},
+	"homepage": "https://github.com/AlexanderElias/alexelias.io#readme"
 }
