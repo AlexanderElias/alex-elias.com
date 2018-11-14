@@ -11,8 +11,8 @@
 	},
 	"devDependencies": {},
 	"scripts": {
-		"s": "rm -r dev && muleify -swm src dev",
-		"b": "rm -r docs && muleify -pm src docs"
+		"t": "rm -r dev/* && muleify -sw src dev",
+		"b": "rm -r docs/* && muleify -pm src docs"
 	},
 	"repository": {
 		"type": "git",
