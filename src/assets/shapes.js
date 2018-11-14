@@ -9,11 +9,12 @@
 		this.atts = options.atts;
 		this.once = options.once || false;
 		this.points = options.points || 2;
-		this.xMin = function () { return 0; };
-		this.yMin = function () { return 0; };
 		this.random = options.random || false;
 		this.infinite = options.infinite || false;
 		this.nameSpace = 'http://www.w3.org/2000/svg';
+
+		this.xMin = function () { return 0; };
+		this.yMin = function () { return 0; };
 		this.xMax = function () { return this.svg.width.baseVal.value; };
 		this.yMax = function () { return this.svg.height.baseVal.value; };
 
@@ -26,8 +27,8 @@
 		this.svg.appendChild(this.element);
 
 		if (this.random) {
-			this.source = this.randomArgs();
-			this.target = this.randomArgs();
+			this.source = this.randomArguments();
+			this.target = this.randomArguments();
 		} else {
 			this.source = typeof options.source === 'string'? this.toPath(options.source) : options.source;
 			this.target = typeof options.target === 'string'? this.toPath(options.target) : options.target;
@@ -36,43 +37,43 @@
 	}
 
 	Shapes.prototype.setSource = function (source) {
-		this.source = source || this.randomArgs();
+		this.source = source || this.randomArguments();
 	};
 
 	Shapes.prototype.setTarget = function (target) {
-		this.target = target || this.randomArgs();
+		this.target = target || this.randomArguments();
 	};
 
-	Shapes.prototype.randomNum = function (min, max) {
+	Shapes.prototype.randomNumber = function (min, max) {
 		min = Math.ceil(min);
 		max = Math.floor(max);
 		return Math.floor(Math.random() * (max - min + 1)) + min;
 	};
 
-	Shapes.prototype.randomArg = function (cmd, num) {
+	Shapes.prototype.randomArgument = function (cmd, num) {
 		var arg = [cmd];
 
 		for (var i = 0; i < num; i++) {
 			arg.push(
-				this.randomNum(this.xMin(), this.xMax()),
-				this.randomNum(this.yMin(), this.yMax())
+				this.randomNumber(this.xMin(), this.xMax()),
+				this.randomNumber(this.yMin(), this.yMax())
 			);
 		}
 
 		return arg;
 	};
 
-	Shapes.prototype.randomArgs = function () {
+	Shapes.prototype.randomArguments = function () {
 		var args = [
 			'M',
-			this.randomNum(this.xMin(), this.xMax()/2),
-			this.randomNum(this.yMin(), this.yMax()/2)
+			this.randomNumber(this.xMin(), this.xMax()/2),
+			this.randomNumber(this.yMin(), this.yMax()/2)
 		];
 
 		for (var i = 0; i < this.points-1; i++) {
 			args = args.concat(
-				this.randomArg('C', 3),
-				this.randomArg('S', 2)
+				this.randomArgument('C', 3),
+				this.randomArgument('S', 2)
 			);
 		}
 
