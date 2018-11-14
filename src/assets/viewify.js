@@ -76,7 +76,7 @@
 		this.listener = this.listener || listener;
 		this.animation = window.requestAnimationFrame.bind(null, this.scroll.bind(this));
 		this.event = window.addEventListener('scroll', this.animation);
-		this.animation();
+		window.requestAnimationFrame(this.animation.bind(this));
 	};
 
 	return window.Viewify = Viewify;
