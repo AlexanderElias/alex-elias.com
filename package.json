@@ -1,6 +1,6 @@
 {
 	"name": "alexelias.io",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "alexelias.io",
 	"main": "index.html",
 	"directories": {
@@ -11,8 +11,8 @@
 	},
 	"devDependencies": {},
 	"scripts": {
-		"s": "rm -r dev && muleify serve -wm src dev",
-		"b": "rm -r docs && muleify pack -m src docs"
+		"s": "rm -r dev && muleify -swm src dev",
+		"b": "rm -r docs && muleify -pm src docs"
 	},
 	"repository": {
 		"type": "git",
