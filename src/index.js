@@ -24,9 +24,7 @@
 		shape.render();
 
 		if (!shape.done && ANIMATE) {
-			ANIMATION = window.requestAnimationFrame(function () {
-				render(shape);
-			});
+			ANIMATION = window.requestAnimationFrame(render.bind(null, shape));
 		}
 
 	}
