@@ -8,6 +8,8 @@
 	lime #9e3
 */
 :root {
+	scroll-behavior: smooth;
+	
 	--black: #222;
 	--blue: #29f;
 	--orange: #f92;

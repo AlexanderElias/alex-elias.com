@@ -1,4 +1,5 @@
-(function (window) { 'use strict';
+
+(function () { 'use strict';
 
 	var CLASS_NAMES = [
 		'dynamic fl',
@@ -61,9 +62,9 @@
 		document.querySelectorAll('.art')[1].addEventListener('click', reset);
 	});
 
-	/*
-		viewify
-	*/
+}());
+
+(function() { 'use strict';
 
 	var viewify = new Viewify({
 		offset: 500,
@@ -102,5 +103,4 @@
 			document.body.className = 'theme-white';
 		}
 	});
-
-}(this));
+}());
