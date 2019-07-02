@@ -8,8 +8,7 @@
 	lime #9e3
 */
 :root {
-	scroll-behavior: smooth;
-	
+
 	--black: #222;
 	--blue: #29f;
 	--orange: #f92;
@@ -24,17 +23,17 @@
 
 	--blackTrans: rgba(0, 0, 0, 0.3);
 	--shadow: 0 3px 6px var(--blackTrans);
+
+	font-size: 16px;
+	scroll-behavior: smooth;
 }
 * {
 	margin: 0;
 	padding: 0;
 	outline: none;
-	max-width: 100%;
-	font-size: 16px;
+	/* max-width: 100%; */
 	box-sizing: border-box;
 	font-family: 'Lato', sans-serif;
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-font-smoothing: antialiased;
 }
 html, body {
 	min-width: 100vw;

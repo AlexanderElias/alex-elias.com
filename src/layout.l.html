@@ -24,11 +24,15 @@
 
 	<title><!--{ "variable": "title" }--></title>
 
+	<link rel="preload" href="/assets/analytic.min.js" as="script">
 	<link rel="preload" href="/assets/menu.js" as="script">
 	<link rel="preload" href="/assets/menu.css" as="style">
 	<link rel="preload" href="/index.css" as="style">
 
+	<script>window.AID='UA-143154399-1';</script>
+	<script src="/assets/analytic.min.js"></script>
 	<script src="/assets/menu.js" defer></script>
+
 	<link rel="stylesheet" href="/assets/menu.css">
 	<link rel="stylesheet" href="/index.css">
 
@@ -50,16 +54,5 @@
 		<!-- { "layout": "*" } -->
 	</main>
 
-	<script>
-		var fontLink = document.createElement('link');
-		fontLink.rel = 'stylesheet';
-		fontLink.href = '/assets/font.css';
-		document.head.appendChild(fontLink);
-
-		var transitionLink = document.createElement('link');
-		transitionLink.rel = 'stylesheet';
-		transitionLink.href = '/assets/transition.css';
-		document.head.appendChild(transitionLink);
-	</script>
 </body>
 </html>

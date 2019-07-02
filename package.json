@@ -16,12 +16,12 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/AlexanderElias/voke.io.git"
+		"url": "git+https://github.com/vokeio/voke.io.git"
 	},
 	"author": "Alexander Elias",
 	"license": "SEE LICENSE IN LICENSE",
 	"bugs": {
-		"url": "https://github.com/AlexanderElias/voke.io/issues"
+		"url": "https://github.com/vokeio/voke.io/issues"
 	},
-	"homepage": "https://github.com/AlexanderElias/voke.io#readme"
+	"homepage": "https://github.com/vokeio/voke.io#readme"
 }

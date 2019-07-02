@@ -1,6 +1,21 @@
 
 (function () { 'use strict';
 
+	var fontLink = document.createElement('link');
+	fontLink.rel = 'stylesheet';
+	fontLink.href = '/assets/font.css';
+	document.head.appendChild(fontLink);
+
+	var transitionLink = document.createElement('link');
+	transitionLink.rel = 'stylesheet';
+	transitionLink.href = '/assets/transition.css';
+	document.head.appendChild(transitionLink);
+
+}());
+
+
+(function () { 'use strict';
+
 	var CLASS_NAMES = [
 		'dynamic fl',
 		'purple fl',
@@ -103,4 +118,5 @@
 			document.body.className = 'theme-white';
 		}
 	});
+
 }());
