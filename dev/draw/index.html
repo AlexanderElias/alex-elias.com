@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-chrome-192x192.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+	<link rel="manifest" href="/favicon/manifest.json">
+	<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#222222">
+	<link rel="shortcut icon" href="/favicon/favicon.ico">
+	<meta name="apple-mobile-web-app-title" content="Alex Elias">
+	<meta name="application-name" content="Alex Elias">
+	<meta name="msapplication-TileColor" content="#222222">
+	<meta name="msapplication-TileImage" content="/favicon/mstile-144x144.png">
+	<meta name="msapplication-config" content="/favicon/browserconfig.xml">
+	<meta name="theme-color" content="#222222">
+
+	<meta name="author" content="Alexander Steven Elias">
+	<meta name="keywords" content="Alex, Elias, Coder, Designer, Developer, Programmer, Coding, Designing, Programming, Web, Development, Front-end, Back-end, Full-stack, Node.js, JavaScript, Rust, Browser">
+	<meta name="description" content="I am a developer, designer, and entrepreneur born and raised in Tucson, Arizona. I build web sites, web apps, mobile apps, and servers that are scalable, performant, and beautiful. My favorite languages are JavaScript and Rust. My favorite technologies are Node.js and the Browser. I am a big proponent of open-source.">
+
+	<title>Draw | Alex Elias</title>
+
+	<link rel="preload" href="/assets/analytic.min.js" as="script">
+	<link rel="preload" href="/assets/menu.js" as="script">
+	<link rel="preload" href="/assets/menu.css" as="style">
+	<link rel="preload" href="/index.css" as="style">
+
+	<script>window.AID='UA-143154399-1';</script>
+	<script src="/assets/analytic.min.js"></script>
+	<script src="/assets/menu.js" defer></script>
+
+	<link rel="stylesheet" href="/assets/menu.css">
+	<link rel="stylesheet" href="/index.css">
+
+</head>
+<body class="theme-white">
+
+	<header>
+		<div class="menu">
+			<div class="menu-icon"></div>
+			<div class="menu-list">
+				<a href="/">Root</a>
+				<a href="/resume">Resume</a>
+				<a href="/contact">Contact</a>
+			</div>
+		</div>
+	</header>
+
+	<main>
+		
+
+
+<script src="https://unpkg.com/vanilla-picker@2"></script>
+
+<style>
+	#canvas {
+		width: 100vw;
+		height: 100vh;
+		overflow: hidden;
+	}
+	#picker {
+		right: 1vw;
+		bottom: 1vh;
+		position: fixed;
+	}
+	#tools {
+		left: 0;
+		bottom: 0;
+		position: fixed;
+	}
+	button {
+		border: none;
+		color: white;
+		margin: 0.5rem;
+		cursor: pointer;
+		font-size: 1.2rem;
+		border-radius: 2px;
+		padding: 0.5rem 1rem;
+		filter: brightness(0.9);
+		background-color: var(--blue);
+	}
+	button:hover {
+		filter: brightness(1);
+	}
+</style>
+
+<div id="picker"></div>
+
+<div id="tools">
+	<button id="download">Download</button>
+	<button id="erase">Erase</button>
+	<button id="line">Line</button>
+	<!-- <button id="fill">Fill</button> -->
+</div>
+
+<div id="canvas">
+	<canvas></canvas>
+</div>
+
+<script type="module" defer>
+	import Draw from '/draw/draw.js';
+
+	const erase = document.querySelector('#erase');
+	const canvas = document.querySelector('canvas');
+	const download = document.querySelector('#download');
+
+	const draw = new Draw();
+
+	draw.setup('canvas', {
+		// type: 'image/jpeg', quality: 0.5,
+		// type: 'image/webp', quality: 0.5,
+		fill: 'white',
+		type: 'image/png',
+	});
+
+	download.onclick = async function () {
+		const a = document.createElement('a');
+		const blob = await draw.blob();
+		a.href = URL.createObjectURL(blob);
+		a.download = 'drawing.png';
+		a.click();
+	};
+
+	erase.onclick = function () {
+		draw.erase();
+	};
+
+	let color = 'black';
+	const fill = document.querySelector('#fill');
+	const line = document.querySelector('#line');
+	const picker = document.querySelector('#picker');
+
+	new window.Picker({
+		popup: false,
+		color: color,
+		parent: picker,
+    	onChange: function (data) {
+			color = draw.line = data.rgbaString
+		}
+	});
+
+	line.onclick = function () {
+		draw.line = color;
+	};
+
+</script>
+
+	</main>
+
+</body>
+</html>

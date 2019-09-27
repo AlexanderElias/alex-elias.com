@@ -1,0 +1,99 @@
+
+<!-- {
+	"title": "Draw | Alex Elias"
+} -->
+
+<script src="https://unpkg.com/vanilla-picker@2"></script>
+
+<style>
+	#canvas {
+		width: 100vw;
+		height: 100vh;
+		overflow: hidden;
+	}
+	#picker {
+		right: 1vw;
+		bottom: 1vh;
+		position: fixed;
+	}
+	#tools {
+		left: 0;
+		bottom: 0;
+		position: fixed;
+	}
+	button {
+		border: none;
+		color: white;
+		margin: 0.5rem;
+		cursor: pointer;
+		font-size: 1.2rem;
+		border-radius: 2px;
+		padding: 0.5rem 1rem;
+		filter: brightness(0.9);
+		background-color: var(--blue);
+	}
+	button:hover {
+		filter: brightness(1);
+	}
+</style>
+
+<div id="picker"></div>
+
+<div id="tools">
+	<button id="download">Download</button>
+	<button id="erase">Erase</button>
+	<button id="line">Line</button>
+	<!-- <button id="fill">Fill</button> -->
+</div>
+
+<div id="canvas">
+	<canvas></canvas>
+</div>
+
+<script type="module" defer>
+	import Draw from '/draw/draw.js';
+
+	const erase = document.querySelector('#erase');
+	const canvas = document.querySelector('canvas');
+	const download = document.querySelector('#download');
+
+	const draw = new Draw();
+
+	draw.setup('canvas', {
+		// type: 'image/jpeg', quality: 0.5,
+		// type: 'image/webp', quality: 0.5,
+		fill: 'white',
+		type: 'image/png',
+	});
+
+	download.onclick = async function () {
+		const a = document.createElement('a');
+		const blob = await draw.blob();
+		a.href = URL.createObjectURL(blob);
+		a.download = 'drawing.png';
+		a.click();
+	};
+
+	erase.onclick = function () {
+		draw.erase();
+	};
+
+	let color = 'black';
+	const fill = document.querySelector('#fill');
+	const line = document.querySelector('#line');
+	const picker = document.querySelector('#picker');
+
+	new window.Picker({
+		popup: false,
+		color: color,
+		parent: picker,
+    	onChange: function (data) {
+			color = draw.line = data.rgbaString
+		}
+	});
+
+	line.onclick = function () {
+		draw.line = color;
+	};
+
+</script>

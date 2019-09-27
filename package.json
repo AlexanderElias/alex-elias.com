@@ -11,7 +11,7 @@
 	},
 	"devDependencies": {},
 	"scripts": {
-		"t": "rm -r dev/* && muleify -sw src dev",
+		"t": "rm -r dev/* && muleify -pw src dev -s dev",
 		"b": "rm -r docs/* && muleify -pm src docs"
 	},
 	"repository": {
