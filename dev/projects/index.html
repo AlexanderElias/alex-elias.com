@@ -22,7 +22,7 @@
 	<meta name="keywords" content="Alex, Elias, Coder, Designer, Developer, Programmer, Coding, Designing, Programming, Web, Development, Front-end, Back-end, Full-stack, Node.js, JavaScript, Rust, Browser">
 	<meta name="description" content="I am a developer, designer, and entrepreneur born and raised in Tucson, Arizona. I build web sites, web apps, mobile apps, and servers that are scalable, performant, and beautiful. My favorite languages are JavaScript and Rust. My favorite technologies are Node.js and the Browser. I am a big proponent of open-source.">
 
-	<title>Draw | Alex Elias</title>
+	<title>Projects | Alex Elias</title>
 
 	<link rel="preload" href="/assets/analytic.min.js" as="script">
 	<link rel="preload" href="/assets/menu.js" as="script">
@@ -45,6 +45,7 @@
 			<div class="menu-list">
 				<a href="/">Root</a>
 				<a href="/resume">Resume</a>
+				<a href="/projects">Projects</a>
 				<a href="/contact">Contact</a>
 			</div>
 		</div>
@@ -54,100 +55,34 @@
 		
 
 
-<script src="https://unpkg.com/vanilla-picker@2"></script>
-
-<style>
-	#canvas {
-		width: 100vw;
-		height: 100vh;
-		overflow: hidden;
-	}
-	#picker {
-		right: 1vw;
-		bottom: 1vh;
-		position: fixed;
-	}
-	#tools {
-		left: 0;
-		bottom: 0;
-		position: fixed;
-	}
-	button {
-		border: none;
-		color: white;
-		margin: 0.5rem;
-		cursor: pointer;
-		font-size: 1.2rem;
-		border-radius: 2px;
-		padding: 0.5rem 1rem;
-		filter: brightness(0.9);
-		background-color: var(--blue);
-	}
-	button:hover {
-		filter: brightness(1);
-	}
-</style>
-
-<div id="picker"></div>
-
-<div id="tools">
-	<button id="download">Download</button>
-	<button id="erase">Erase</button>
-	<button id="line">Line</button>
-	<!-- <button id="fill">Fill</button> -->
+<div class="title column">
+	<div class="center">
+		<h1>Projects</h1>
+	</div>
 </div>
 
-<div id="canvas">
-	<canvas></canvas>
+<div class="middle">
+	<div class="column">
+
+        <p>
+            This is a list of my projects some are personal and in development.
+        </p>
+
+		<h2>Personal</h2>
+		<ul>
+			<li>
+    			<strong>Draw</strong> <a href="https://draw.voke.io/" target="_blank" rel="noopener">draw.voke.io</a> <span>A drawing web app.</span>
+			</li>
+			<li>
+    			<strong>Swac</strong> <a href="https://swac.io/" target="_blank" rel="noopener">swac.io</a> <span>A sleep wake calculator web app.</span>
+			</li>
+			<li>
+    			<strong>Siyon</strong> <a href="https://siyon.io/" target="_blank" rel="noopener">siyon.io</a> <span>A bible and calendar web app.</span>
+			</li>
+        </ul>
+
+	</div>
 </div>
-
-<script type="module" defer>
-	import Draw from '/draw/draw.js';
-
-	const erase = document.querySelector('#erase');
-	const canvas = document.querySelector('canvas');
-	const download = document.querySelector('#download');
-
-	const draw = new Draw();
-
-	draw.setup('canvas', {
-		// type: 'image/jpeg', quality: 0.5,
-		// type: 'image/webp', quality: 0.5,
-		fill: 'white',
-		type: 'image/png',
-	});
-
-	download.onclick = async function () {
-		const a = document.createElement('a');
-		const blob = await draw.blob();
-		a.href = URL.createObjectURL(blob);
-		a.download = 'drawing.png';
-		a.click();
-	};
-
-	erase.onclick = function () {
-		draw.erase();
-	};
-
-	let color = 'black';
-	const fill = document.querySelector('#fill');
-	const line = document.querySelector('#line');
-	const picker = document.querySelector('#picker');
-
-	new window.Picker({
-		popup: false,
-		color: color,
-		parent: picker,
-    	onChange: function (data) {
-			color = draw.line = data.rgbaString
-		}
-	});
-
-	line.onclick = function () {
-		draw.line = color;
-	};
-
-</script>
 
 	</main>
 
