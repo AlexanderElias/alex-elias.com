@@ -1,1 +1,30 @@
-(function(a){'use strict';var b,c,d,e=document.querySelector('.menu'),f=document.querySelector('.menu-icon'),g=document.querySelector('.menu-list');if(b=a.location.pathname.replace(/\/$/,''),b=''===b?'/':b,b=a.location.origin+b,f){for(c=0;3>c;c++)f.appendChild(document.createElement('div'));f.addEventListener('click',function(){e.classList.toggle('active')})}for(c=0,d=g.children.length;c<d;c++)g.children[c].href===b?g.children[c].classList.add('active'):g.children[c].classList.remove('active')})(this);
+(function (window) { 'use strict';
+
+	var path, i, l;
+	var menu = document.querySelector('.menu');
+	var menuIcon = document.querySelector('.menu-icon');
+	var menuList = document.querySelector('.menu-list');
+
+	path = window.location.pathname.replace(/\/$/, '');
+	path = path === '' ? '/' : path;
+	path = window.location.origin + path;
+
+	if (menuIcon) {
+		for (i = 0; i < 3; i++) {
+			menuIcon.appendChild(document.createElement('div'));
+		}
+
+		menuIcon.addEventListener('click', function () {
+			menu.classList.toggle('active');
+		});
+	}
+
+	for (i = 0, l = menuList.children.length; i < l; i++) {
+		if (menuList.children[i].href === path) {
+			menuList.children[i].classList.add('active');
+		} else {
+			menuList.children[i].classList.remove('active');
+		}
+	}
+	
+}(this));

@@ -1,1 +1,111 @@
-(function(a){function b(a){this.done=!1,this.completes=[],this.countTotal=0,this.countCurrent=0,this.svg=a.svg,this.atts=a.atts,this.once=a.once||!1,this.points=a.points||2,this.xMin=function(){return 0},this.yMin=function(){return 0},this.random=a.random||!1,this.infinite=a.infinite||!1,this.nameSpace='http://www.w3.org/2000/svg',this.xMax=function(){return this.svg.width.baseVal.value},this.yMax=function(){return this.svg.height.baseVal.value},this.element=document.createElementNS(this.nameSpace,'path'),Object.keys(this.atts).forEach(function(a){this.element.setAttribute(a,this.atts[a])},this),this.svg.appendChild(this.element),this.random?(this.source=this.randomArgs(),this.target=this.randomArgs()):(this.source=a.source,this.target=a.target)}return b.prototype.setSource=function(a){this.source=a||this.randomArgs()},b.prototype.setTarget=function(a){this.target=a||this.randomArgs()},b.prototype.randomNum=function(a,b){var c=Math.floor;return a=Math.ceil(a),b=c(b),c(Math.random()*(b-a+1))+a},b.prototype.randomArg=function(a,b){for(var c=[a],d=0;d<b;d++)c.push(this.randomNum(this.xMin(),this.xMax()),this.randomNum(this.yMin(),this.yMax()));return c},b.prototype.randomArgs=function(){for(var a=['M',this.randomNum(this.xMin(),this.xMax()/2),this.randomNum(this.yMin(),this.yMax()/2)],b=0;b<this.points-1;b++)a=a.concat(this.randomArg('C',3),this.randomArg('S',2));return a.push('Z'),a},b.prototype.step=function(){var a=0;if(!this.done)for(var b=0,c=this.source.length;b<c;b++)'string'==typeof this.source[b]||this.source[b]===this.target[b]?(a++,this.infinite&&a===c?this.setTarget():this.done=a===c):this.source[b]<this.target[b]?this.source[b]++:this.source[b]>this.target[b]&&this.source[b]--},b.prototype.render=function(){this.element.setAttribute('d',this.source.join(' '))},a.Shapes=b})(this);
+(function (window) {
+
+	function Shapes (options) {
+		this.done = false;
+		this.completes = [];
+		this.countTotal = 0;
+		this.countCurrent = 0;
+		this.svg = options.svg;
+		this.atts = options.atts;
+		this.once = options.once || false;
+		this.points = options.points || 2;
+		this.xMin = function () { return 0; };
+		this.yMin = function () { return 0; };
+		this.random = options.random || false;
+		this.infinite = options.infinite || false;
+		this.nameSpace = 'http://www.w3.org/2000/svg';
+		this.xMax = function () { return this.svg.width.baseVal.value; };
+		this.yMax = function () { return this.svg.height.baseVal.value; };
+
+		this.element = document.createElementNS(this.nameSpace, 'path');
+
+		Object.keys(this.atts).forEach(function (key) {
+			this.element.setAttribute(key, this.atts[key]);
+		}, this);
+
+		this.svg.appendChild(this.element);
+
+		if (this.random) {
+			this.source = this.randomArgs();
+			this.target = this.randomArgs();
+		} else {
+			this.source = options.source;
+			this.target = options.target;
+		}
+	}
+
+	Shapes.prototype.setSource = function (source) {
+		this.source = source || this.randomArgs();
+	};
+
+	Shapes.prototype.setTarget = function (target) {
+		this.target = target || this.randomArgs();
+	};
+
+	Shapes.prototype.randomNum = function (min, max) {
+		min = Math.ceil(min);
+		max = Math.floor(max);
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+	};
+
+	Shapes.prototype.randomArg = function (cmd, num) {
+		var arg = [cmd];
+
+		for (var i = 0; i < num; i++) {
+			arg.push(
+				this.randomNum(this.xMin(), this.xMax()),
+				this.randomNum(this.yMin(), this.yMax())
+			);
+		}
+
+		return arg;
+	};
+
+	Shapes.prototype.randomArgs = function () {
+		var args = [
+			'M',
+			this.randomNum(this.xMin(), this.xMax()/2),
+			this.randomNum(this.yMin(), this.yMax()/2)
+		];
+
+		for (var i = 0; i < this.points-1; i++) {
+			args = args.concat(
+				this.randomArg('C', 3),
+				this.randomArg('S', 2)
+			);
+		}
+
+		args.push('Z');
+
+		return args;
+	};
+
+	Shapes.prototype.step = function () {
+		var completes = 0;
+
+		if (!this.done) {
+			for (var i = 0, l = this.source.length; i < l; i++) {
+				if (typeof this.source[i] === 'string' || this.source[i] === this.target[i]) {
+					completes++;
+
+					if (this.infinite && completes === l) {
+						this.setTarget();
+					} else {
+						this.done = completes === l;
+					}
+				} else if (this.source[i] < this.target[i]) {
+					this.source[i]++;
+				} else if (this.source[i] > this.target[i]) {
+					this.source[i]--;
+				}
+			}
+		}
+	};
+
+	Shapes.prototype.render = function () {
+		this.element.setAttribute('d', this.source.join(' '));
+	};
+
+	return window.Shapes = Shapes;
+
+}(this));

@@ -12,7 +12,7 @@
 	"devDependencies": {},
 	"scripts": {
 		"t": "rm -r dev/* && muleify -pw src dev -s dev",
-		"b": "rm -r docs/* && muleify -pm src docs"
+		"b": "rm -r docs/* && muleify -p src docs"
 	},
 	"repository": {
 		"type": "git",
