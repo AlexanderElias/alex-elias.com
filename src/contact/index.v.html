@@ -1,33 +1,33 @@
-
 <!-- {
 	"title": "Contact | Alex Elias"
 } -->
 
 <div class="title column">
-	<div class="center">
-		<h1>Contact</h1>
-	</div>
+    <div class="center">
+        <h1>Contact</h1>
+    </div>
 </div>
 
 <div class="middle">
-	<div class="column">
+    <div class="column">
 
-		<h2>Information</h2>
+        <h2>Information</h2>
 
-		<div class="middle">
-			<div class="row sm">
-				<div class="column around">
-					<p>Hours: 9am-6pm</p>
-					<p>Days: Sunday-Friday</p>
-				</div>
-				<div class="column around">
-					<p>Phone: <a href="tel:15208707847">1-520-870-7847</a></p>
-					<p>Email: <a href="mailto:alex.steven.elias@gmail.com">alex.steven.elias@gmail.com</a></p>
-				</div>
-			</div>
-		</div>
+        <div class="middle">
+            <div class="row sm">
+                <div class="column around">
+                    <p>Hours: 9am-6pm</p>
+                    <p>Days: Sunday-Friday</p>
+                </div>
+                <div class="column around">
+                    <p>Phone: <a href="tel:15208707847">1-520-870-7847</a></p>
+                    <p>Email: <a href="mailto:alex.steven.elias@gmail.com">alex.steven.elias@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
 
-		<h2>Message</h2>
+        <!-- 
+        h2>Message</h2>
 
 		<form class="column center">
 			<div class="row wrap center">
@@ -43,34 +43,37 @@
 				<input class="button center" type="submit" value="Submit">
 			</div>
 		</form>
+        -->
 
-	</div>
+    </div>
 </div>
 
+<!--
 <script src="/assets/astatine.min.js"></script>
 <script>
-	Astatine.setup.spinner.colorTop = '#fff';
-	Astatine.setup.spinner.colorBottom = '#222';
-	Astatine.submit({
-		query: 'form',
-		method: 'post',
-		responseType: 'json',
-		action: 'https://www.enformed.io/zpn17s0',
-		prepare: function (data, resolve) {
-			data['*formname'] = 'voke.io';
-			data['*default_email'] = 'alex.steven.elias@gmail.com';
-			return resolve(data);
-		},
-		complete: function (error, success) {
-			var submit = document.querySelector('[type="submit"]');
-			submit.disabled = true;
+    Astatine.setup.spinner.colorTop = '#fff';
+    Astatine.setup.spinner.colorBottom = '#222';
+    Astatine.submit({
+        query: 'form',
+        method: 'post',
+        responseType: 'json',
+        action: 'https://www.enformed.io/zpn17s0',
+        prepare: function (data, resolve) {
+            data[ '*formname' ] = 'voke.io';
+            data[ '*default_email' ] = 'alex.steven.elias@gmail.com';
+            return resolve(data);
+        },
+        complete: function (error, success) {
+            var submit = document.querySelector('[type="submit"]');
+            submit.disabled = true;
 
-			if (error) {
-				console.log(error);
-				submit.value = 'Error: Please call or try again';
-			} else {
-				submit.value = 'Success: Message was sent';
-			}
-		}
-	});
+            if (error) {
+                console.log(error);
+                submit.value = 'Error: Please call or try again';
+            } else {
+                submit.value = 'Success: Message was sent';
+            }
+        }
+    });
 </script>
+-->
